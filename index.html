@@ -1,124 +1,324 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="or">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>mr_sahu_babu_00 | THE SUCCESS POINT TUTORIAL</title>
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef3fb;color:#10254a}
-header{background:linear-gradient(135deg,#071b45,#0d4d8f);color:#fff;padding:28px 16px;text-align:center}
-header h1{margin:0;font-size:clamp(28px,6vw,48px)}header p{margin:8px 0 0}
-.container{max-width:900px;margin:24px auto;padding:0 14px}
-.card{background:#fff;border-radius:18px;padding:22px;box-shadow:0 8px 25px #0001;margin-bottom:20px}
-button{border:0;border-radius:10px;padding:12px 18px;background:#0d4d8f;color:#fff;font-size:16px;cursor:pointer}
-button:hover{opacity:.9}.option{display:block;width:100%;text-align:left;background:#f2f6fc;color:#10254a;margin:9px 0}
-.option.selected{outline:3px solid #e3a51b}.hidden{display:none}
-input{width:100%;padding:12px;border:1px solid #ccd5e2;border-radius:9px;font-size:16px;margin:8px 0 14px}
-.q{border-bottom:1px solid #e5eaf1;padding-bottom:18px;margin-bottom:18px}
-#certificate{position:relative;max-width:1100px;margin:auto;background:#fff}
-#certificate img{width:100%;display:block}
-.overlay{position:absolute;left:34%;right:25%;top:51%;text-align:center;font-family:Georgia,serif;font-size:clamp(18px,3vw,38px);font-style:italic}
-.scoreOverlay{position:absolute;left:49%;top:69%;font-weight:bold;font-size:clamp(15px,2.4vw,28px)}
-.dateOverlay{position:absolute;left:14%;bottom:6.5%;font-size:clamp(11px,1.5vw,20px)}
-footer{text-align:center;padding:25px;color:#5b6b82}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odia GK Quiz</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #121212;
+      color: white;
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 650px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 25px rgba(0,0,0,.5);
+    }
+
+    h1 {
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #ccc;
+      margin-bottom: 18px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      background: #292929;
+      color: white;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #27ae60;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    .category-btn {
+      background: #2980b9;
+    }
+
+    .option-btn {
+      background: #292929;
+      border: 1px solid #555;
+      text-align: left;
+    }
+
+    .btn-png {
+      background: #d35400;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #certificate {
+      background: #1e1e1e;
+      color: white;
+      border: 5px solid #d4af37;
+      border-radius: 12px;
+      padding: 30px 20px;
+      margin-top: 20px;
+      text-align: center;
+      font-family: Georgia, serif;
+    }
+
+    .cert-badge {
+      display: inline-flex;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #d4af37;
+      color: #1e1e1e;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 11px;
+      margin-bottom: 15px;
+    }
+
+    .cert-header {
+      font-size: 28px;
+      letter-spacing: 3px;
+    }
+
+    .cert-sub {
+      color: #d4af37;
+      letter-spacing: 2px;
+      margin: 8px 0 25px;
+    }
+
+    .cert-name {
+      color: #f39c12;
+      font-size: 30px;
+      margin: 12px 0;
+      border-bottom: 1px solid #d4af37;
+      display: inline-block;
+      padding: 5px 15px;
+    }
+
+    .cert-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid #444;
+      font-size: 12px;
+    }
+
+    .signature {
+      text-align: right;
+    }
+
+    @media(max-width:500px) {
+      .card {
+        padding: 18px;
+      }
+
+      .cert-header {
+        font-size: 22px;
+      }
+
+      .cert-name {
+        font-size: 25px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<h1>mr_sahu_babu_00</h1>
-<p>🎓 THE SUCCESS POINT TUTORIAL • GODIBANDHA</p>
-</header>
 
-<div class="container">
-<div class="card" id="start">
-<h2>Class 10 Science Quiz</h2>
-<p>20 MCQ questions • Instant score • Certificate after completion</p>
-<label>Student Name</label>
-<input id="studentName" placeholder="Enter your name">
-<button onclick="startQuiz()">Start Quiz</button>
-</div>
+  <!-- Registration -->
+  <div id="setup-screen" class="card">
+    <h1>🇮🇳 Odia GK Quiz</h1>
 
-<div class="card hidden" id="quizCard">
-<div id="quiz"></div>
-<button onclick="finishQuiz()">Submit Quiz</button>
-</div>
+    <p>ନିଜର ନାମ ଦେଇ କୁଇଜ୍ ଆରମ୍ଭ କରନ୍ତୁ</p>
 
-<div class="card hidden" id="result">
-<h2>🏆 Quiz Completed!</h2>
-<p id="resultText"></p>
-<button onclick="showCertificate()">View Certificate</button>
-</div>
+    <input
+      type="text"
+      id="user-name"
+      placeholder="ଆପଣଙ୍କ ପୂରା ନାମ ଲେଖନ୍ତୁ"
+    >
 
-<div class="card hidden" id="certCard">
-<h2 style="text-align:center">Your Certificate</h2>
-<div id="certificate">
-<img src="certificate-template.png" alt="Certificate">
-<div class="overlay" id="certName">Student Name</div>
-<div class="scoreOverlay" id="certScore">0%</div>
-<div class="dateOverlay" id="certDate"></div>
-</div>
-<p style="text-align:center;margin-top:15px">Created by: <b>mr_sahu_babu</b> • Contact: 7377223482</p>
-</div>
-</div>
-<footer>THE SUCCESS POINT TUTORIAL • GODIBANDHA • 7377223482</footer>
+    <p><strong>Category ବାଛନ୍ତୁ</strong></p>
 
-<script>
-const questions=[
-["Which gas is essential for respiration?","Oxygen","Nitrogen","Hydrogen","Carbon dioxide"],
-["What is the SI unit of electric current?","Ampere","Volt","Ohm","Watt"],
-["Which part of the cell controls its activities?","Nucleus","Ribosome","Cell wall","Vacuole"],
-["The pH of a neutral solution is:","7","0","14","5"],
-["Which organ pumps blood in the human body?","Heart","Lung","Kidney","Liver"],
-["What is the chemical formula of water?","H2O","CO2","O2","NaCl"],
-["Which lens is used to correct myopia?","Concave lens","Convex lens","Cylindrical lens","Plane lens"],
-["The process by which plants make food is called:","Photosynthesis","Respiration","Transpiration","Digestion"],
-["Which metal is liquid at room temperature?","Mercury","Iron","Copper","Aluminium"],
-["What is the speed of light approximately?","3 × 10^8 m/s","3 × 10^5 m/s","3 × 10^6 m/s","3 × 10^3 m/s"],
-["Which blood cells help fight infection?","White blood cells","Red blood cells","Platelets","Plasma"],
-["Which acid is present in lemon?","Citric acid","Hydrochloric acid","Sulfuric acid","Nitric acid"],
-["The basic unit of heredity is:","Gene","Cell","Tissue","Organ"],
-["Which instrument measures electric current?","Ammeter","Voltmeter","Barometer","Thermometer"],
-["What is the main gas in Earth's atmosphere?","Nitrogen","Oxygen","Carbon dioxide","Hydrogen"],
-["Which process changes liquid into gas?","Evaporation","Condensation","Freezing","Melting"],
-["Which vitamin is produced in the skin in sunlight?","Vitamin D","Vitamin C","Vitamin B12","Vitamin K"],
-["The resistance of a conductor is measured in:","Ohm","Ampere","Volt","Joule"],
-["Which planet is known as the Red Planet?","Mars","Venus","Jupiter","Saturn"],
-["Which energy is stored in food?","Chemical energy","Light energy","Sound energy","Nuclear energy"]
-];
-let name="",score=0;
+    <button class="category-btn" onclick="startQuiz('india')">
+      🇮🇳 ଭାରତ GK
+    </button>
 
-function startQuiz(){
- name=document.getElementById("studentName").value.trim();
- if(!name){alert("Please enter your name.");return}
- document.getElementById("start").classList.add("hidden");
- document.getElementById("quizCard").classList.remove("hidden");
- const box=document.getElementById("quiz");
- box.innerHTML=questions.map((q,i)=>`
- <div class="q"><h3>${i+1}. ${q[0]}</h3>
- ${q.slice(1).map((a,j)=>`<button class="option" onclick="choose(${i},${j},this)">${String.fromCharCode(65+j)}. ${a}</button>`).join("")}
- </div>`).join("");
-}
-const answers={};
-function choose(i,j,el){
- answers[i]=j;
- [...el.parentElement.querySelectorAll(".option")].forEach(x=>x.classList.remove("selected"));
- el.classList.add("selected");
-}
-function finishQuiz(){
- score=questions.reduce((s,q,i)=>s+(answers[i]===0?1:0),0);
- const pct=Math.round(score/questions.length*100);
- document.getElementById("quizCard").classList.add("hidden");
- document.getElementById("result").classList.remove("hidden");
- document.getElementById("resultText").textContent=`${name}, you scored ${score}/${questions.length} (${pct}%).`;
-}
-function showCertificate(){
- const pct=Math.round(score/questions.length*100);
- document.getElementById("certName").textContent=name;
- document.getElementById("certScore").textContent=pct+"%";
- document.getElementById("certDate").textContent=new Date().toLocaleDateString();
- document.getElementById("certCard").classList.remove("hidden");
- document.getElementById("certCard").scrollIntoView({behavior:"smooth"});
-}
-</script>
-</body>
-</html>
+    <button class="category-btn" onclick="startQuiz('odisha')">
+      🏛️ ଓଡ଼ିଶା GK
+    </button>
+
+    <button class="category-btn" onclick="startQuiz('general')">
+      📝 ସାଧାରଣ GK
+    </button>
+  </div>
+
+
+  <!-- Quiz -->
+  <div id="quiz-screen" class="card hidden">
+
+    <h2 id="question-text"></h2>
+
+    <div id="options-container"></div>
+
+  </div>
+
+
+  <!-- Result -->
+  <div id="result-screen" class="card hidden">
+
+    <h2>🎉 Quiz ସମ୍ପୂର୍ଣ୍ଣ ହେଲା!</h2>
+
+    <p id="score-text"></p>
+
+    <!-- Certificate -->
+    <div id="certificate">
+
+      <div class="cert-badge">
+        AWARD<br>2026
+      </div>
+
+      <div class="cert-header">
+        CERTIFICATE
+      </div>
+
+      <div class="cert-sub">
+        OF ACHIEVEMENT
+      </div>
+
+      <p style="font-size:12px;">
+        PROUDLY PRESENTED TO
+      </p>
+
+      <div class="cert-name" id="cert-student-name">
+        Student Name
+      </div>
+
+      <p style="font-size:13px;">
+        FOR EXCELLENT PERFORMANCE IN
+        <strong id="cert-category" style="color:#d4af37;">
+          ODIA GK QUIZ
+        </strong>
+      </p>
+
+      <p style="font-size:12px; line-height:1.6;">
+        ଏହି ପ୍ରମାଣପତ୍ର ଅନଲାଇନ୍ GK Quiz ରେ
+        ଉତ୍କୃଷ୍ଟ ପ୍ରଦର୍ଶନ ପାଇଁ ପ୍ରଦାନ କରାଯାଉଛି।
+      </p>
+
+      <div class="cert-footer">
+
+        <div>
+          <p style="font-size:10px;">DATE</p>
+          <strong id="cert-date"></strong>
+        </div>
+
+        <div class="signature">
+          <p style="color:#d4af37; margin:0;">
+            Odia GK Quiz
+          </p>
+
+          <p style="font-size:10px; margin:3px 0 0;">
+            AUTHORIZED SIGNATURE
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <button
+      onclick="downloadPNG()"
+      class="btn-png">
+      🖼️ Certificate Download PNG
+    </button>
+
+    <button onclick="window.print()">
+      📄 Print / Save PDF
+    </button>
+
+    <button
+      onclick="location.reload()"
+      class="category-btn">
+      🔄 ପୁଣି ଥରେ ଖେଳନ୍ତୁ
+    </button>
+
+  </div>
+
+
+  <script>
+
+    const questions = {
+
+      odisha: [
+
+        {
+          q: "ଓଡ଼ିଶାର ରାଜଧାନୀ କେଉଁଟି?",
+          options: [
+            "କଟକ",
+            "ଭୁବନେଶ୍ୱର",
+            "ପୁରୀ",
+            "ସମ୍ବଲପୁର"
+          ],
+          ans: 1
+        },
+
+        {
+          q: "ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ରଥଯାତ୍ରା କେଉଁ ସହରରେ ହୁଏ?",
+          options: [
+            "କଟକ",
+            "ପୁରୀ",
+            "ବାଲେଶ୍ୱର",
+            "ବ୍ରହ୍ମପୁର"
+          ],
+          ans: 1
+        },
+
+        {
+          q: "ଓଡ଼ିଶାର ରାଜ
