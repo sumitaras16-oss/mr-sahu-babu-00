@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="or">
 <head>
 <meta charset="UTF-8">
@@ -9,18 +9,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:"Segoe UI",Arial,sans-serif;
+  font-family:Arial,"Noto Sans Oriya",sans-serif;
 }
 
 body{
   min-height:100vh;
-  background:linear-gradient(135deg,#071a2b,#123b59,#06111d);
-  color:white;
+  background:linear-gradient(135deg,#071b2d,#123b59,#06111d);
+  color:#fff;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -29,7 +28,7 @@ body{
 
 .card{
   width:100%;
-  max-width:720px;
+  max-width:700px;
   background:#14283a;
   border:1px solid #45657d;
   border-radius:18px;
@@ -39,12 +38,16 @@ body{
 }
 
 .hidden{
-  display:none;
+  display:none !important;
 }
 
 h1{
   color:#ffd84d;
-  margin-bottom:10px;
+  margin-bottom:12px;
+}
+
+h2{
+  margin-bottom:18px;
 }
 
 p{
@@ -59,7 +62,7 @@ input{
   border-radius:9px;
   border:1px solid #607d92;
   background:#081723;
-  color:white;
+  color:#fff;
   font-size:17px;
   margin-bottom:12px;
 }
@@ -67,9 +70,9 @@ input{
 button{
   width:100%;
   padding:14px;
-  border:none;
+  border:0;
   border-radius:9px;
-  color:white;
+  color:#fff;
   background:#1680c4;
   font-size:16px;
   cursor:pointer;
@@ -80,15 +83,23 @@ button:hover{
   opacity:.9;
 }
 
+.start-btn{
+  background:#16a05d;
+}
+
 .option-btn{
   background:#203d54;
   border:1px solid #58758a;
   text-align:left;
 }
 
+.option-btn:hover{
+  background:#2d536e;
+}
+
 #timer{
   color:#ffd84d;
-  font-size:19px;
+  font-size:20px;
   font-weight:bold;
   margin-bottom:15px;
 }
@@ -106,6 +117,18 @@ button:hover{
   width:0%;
   height:100%;
   background:#ffd84d;
+  transition:width .2s;
+}
+
+#question-number{
+  color:#9fc7df;
+  margin-bottom:10px;
+}
+
+#question-text{
+  font-size:21px;
+  line-height:1.6;
+  margin-bottom:15px;
 }
 
 .result-score{
@@ -114,42 +137,25 @@ button:hover{
   font-weight:bold;
 }
 
-
-/* ======================
-   CERTIFICATE
-====================== */
+/* CERTIFICATE */
 
 #certificate{
-
   background:#fffdf3;
-
   color:#222;
-
   border:8px double #c79b20;
-
   border-radius:8px;
-
   padding:35px 25px;
-
   margin-top:20px;
-
   position:relative;
-
   text-align:center;
-
   overflow:hidden;
 }
 
 #certificate:before{
-
   content:"";
-
   position:absolute;
-
   inset:10px;
-
   border:1px solid #d6b64d;
-
   pointer-events:none;
 }
 
@@ -159,151 +165,90 @@ button:hover{
 }
 
 .cert-title{
-
   color:#735300;
-
   font-family:Georgia,"Times New Roman",serif;
-
   font-size:34px;
-
   font-weight:bold;
-
   letter-spacing:4px;
-
 }
 
 .cert-subtitle{
-
   color:#b07b00;
-
   font-family:Georgia,"Times New Roman",serif;
-
   font-size:15px;
-
   letter-spacing:3px;
-
   margin-top:8px;
-
   margin-bottom:25px;
-
 }
 
 .presented{
-
-  color:#666;
-
+  color:#666 !important;
   font-size:11px;
-
   letter-spacing:2px;
-
   margin-bottom:5px;
-
 }
 
-
-/* NAME — ସିଧା ଲାଇନ୍ */
+/* NAME STRAIGHT LINE */
 
 .cert-name{
-
   display:inline-block;
-
   color:#704d00;
-
   font-family:Georgia,"Times New Roman",serif;
-
   font-size:32px;
-
   font-weight:bold;
-
   letter-spacing:1px;
-
   border-bottom:2px solid #c79b20;
-
   padding:6px 25px;
-
   margin:5px 0 20px;
-
 }
-
-
-/* DESCRIPTION */
 
 .cert-description{
-
-  color:#444;
-
+  color:#444 !important;
   font-family:Georgia,"Times New Roman",serif;
-
   font-size:13px;
-
   line-height:1.7;
-
   margin-bottom:10px;
-
 }
 
-
-/* DATE + SIGNATURE */
-
 .cert-footer{
-
   display:flex;
-
   justify-content:space-between;
-
   align-items:flex-end;
-
   margin-top:35px;
-
   padding-top:15px;
-
   border-top:1px solid #cdbb80;
-
 }
 
 .cert-footer-box{
-
   width:45%;
-
 }
 
 .cert-date{
-
-  color:#222;
-
+  color:#222 !important;
   font-family:Georgia,"Times New Roman",serif;
-
   font-size:14px;
-
   font-weight:bold;
-
 }
 
-
-/* SIGNATURE ମଧ୍ୟ ସିଧା */
-
 .signature{
-
   color:#704d00;
-
   font-family:Georgia,"Times New Roman",serif;
-
   font-size:16px;
-
   font-weight:bold;
-
 }
 
 .small-label{
-
-  color:#777;
-
+  color:#777 !important;
   font-size:9px;
-
   letter-spacing:1px;
-
   margin-top:4px;
+}
 
+.instagram{
+  color:#c13584 !important;
+  font-size:11px;
+  font-weight:bold;
+  margin-top:7px;
 }
 
 .download-btn{
@@ -333,19 +278,19 @@ button:hover{
     padding:5px 15px;
   }
 
+  #question-text{
+    font-size:18px;
+  }
+
   .cert-footer{
     margin-top:25px;
   }
-
 }
-
-
-/* PRINT */
 
 @media print{
 
   body{
-    background:white;
+    background:#fff;
     padding:0;
   }
 
@@ -353,14 +298,14 @@ button:hover{
   #quiz-screen,
   #score-text,
   .download-area{
-    display:none!important;
+    display:none !important;
   }
 
   #result-screen{
-    display:block!important;
+    display:block !important;
     width:100%;
     max-width:100%;
-    background:white;
+    background:#fff;
     box-shadow:none;
     border:none;
   }
@@ -368,19 +313,13 @@ button:hover{
   #certificate{
     margin:0;
   }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ======================
-     START PAGE
-====================== -->
+<!-- START SCREEN -->
 
 <div id="setup-screen" class="card">
 
@@ -396,18 +335,20 @@ button:hover{
     type="text"
     id="user-name"
     placeholder="ଆପଣଙ୍କ ପୂରା ନାମ ଲେଖନ୍ତୁ"
+    autocomplete="off"
   >
 
-  <button onclick="startQuiz()">
+  <button
+    type="button"
+    class="start-btn"
+    id="start-button">
     🚀 Quiz ଆରମ୍ଭ କରନ୍ତୁ
   </button>
 
 </div>
 
 
-<!-- ======================
-     QUIZ PAGE
-====================== -->
+<!-- QUIZ SCREEN -->
 
 <div id="quiz-screen" class="card hidden">
 
@@ -433,9 +374,7 @@ button:hover{
 </div>
 
 
-<!-- ======================
-     RESULT PAGE
-====================== -->
+<!-- RESULT SCREEN -->
 
 <div id="result-screen" class="card hidden">
 
@@ -444,9 +383,7 @@ button:hover{
   <p id="score-text" class="result-score"></p>
 
 
-  <!-- ======================
-       CERTIFICATE
-  ====================== -->
+  <!-- CERTIFICATE -->
 
   <div id="certificate">
 
@@ -466,8 +403,7 @@ button:hover{
       PROUDLY PRESENTED TO
     </p>
 
-
-    <!-- ଏଠାରେ ଛାତ୍ରଙ୍କ ନାମ ଆସିବ -->
+    <!-- STUDENT NAME -->
 
     <div
       id="cert-student-name"
@@ -475,35 +411,25 @@ button:hover{
       Student Name
     </div>
 
-
     <p class="cert-description">
-
       ଓଡ଼ିଶା GK Quiz ରେ ଅଂଶଗ୍ରହଣ କରି
       ଉତ୍କୃଷ୍ଟ ପ୍ରଦର୍ଶନ ପାଇଁ
       ଏହି ପ୍ରମାଣପତ୍ର ପ୍ରଦାନ କରାଯାଉଛି।
-
     </p>
-
 
     <p class="cert-description">
-
       <strong>ODISHA GENERAL KNOWLEDGE QUIZ</strong>
-
     </p>
-
-
-    <!-- DATE AND SIGNATURE -->
 
     <div class="cert-footer">
 
+      <!-- DATE -->
 
       <div class="cert-footer-box">
 
         <div class="small-label">
           DATE
         </div>
-
-        <!-- Quiz ଦେଇଥିବା ଦିନର Date -->
 
         <div
           id="cert-date"
@@ -512,6 +438,8 @@ button:hover{
 
       </div>
 
+
+      <!-- SIGNATURE + INSTAGRAM -->
 
       <div class="cert-footer-box">
 
@@ -523,8 +451,11 @@ button:hover{
           AUTHORIZED SIGNATURE
         </div>
 
-      </div>
+        <div class="instagram">
+          Instagram: @mr_sahu_babu_00
+        </div>
 
+      </div>
 
     </div>
 
@@ -536,29 +467,24 @@ button:hover{
   <div class="download-area">
 
     <button
+      type="button"
       class="download-btn"
-      onclick="downloadCertificate()">
-
+      id="download-button">
       🖼️ Certificate Download PNG
-
     </button>
 
-
     <button
+      type="button"
       class="print-btn"
-      onclick="window.print()">
-
+      id="print-button">
       📄 Print / Save PDF
-
     </button>
 
-
     <button
+      type="button"
       class="restart-btn"
-      onclick="location.reload()">
-
+      id="restart-button">
       🔄 ପୁଣି ଥରେ Quiz କରନ୍ତୁ
-
     </button>
 
   </div>
@@ -568,10 +494,9 @@ button:hover{
 
 <script>
 
-
-/* ======================
-   QUESTIONS
-====================== */
+/* =========================
+   50 QUESTIONS
+========================= */
 
 const questions = [
 
@@ -672,3 +597,672 @@ ans:0
 },
 
 {
+q:"ସମ୍ବଲପୁରୀ ଶାଢ଼ୀ କେଉଁ ଅଞ୍ଚଳର?",
+options:["ପଶ୍ଚିମ ଓଡ଼ିଶା","ଉପକୂଳ ଓଡ଼ିଶା","ଉତ୍ତର ଓଡ଼ିଶା","ଦକ୍ଷିଣ ଓଡ଼ିଶା"],
+ans:0
+},
+
+{
+q:"ନନ୍ଦନକାନନ କେଉଁଠାରେ ଅଛି?",
+options:["ଭୁବନେଶ୍ୱର","କଟକ","ପୁରୀ","ବ୍ରହ୍ମପୁର"],
+ans:0
+},
+
+{
+q:"ସିମିଳିପାଳ କେଉଁ ଜିଲ୍ଲାରେ?",
+options:["ମୟୂରଭଞ୍ଜ","କୋରାପୁଟ","ଗଜପତି","କଳାହାଣ୍ଡି"],
+ans:0
+},
+
+{
+q:"ଭିତରକନିକା କେଉଁ ଜିଲ୍ଲାରେ?",
+options:["କେନ୍ଦ୍ରାପଡ଼ା","ପୁରୀ","କଟକ","ଗଞ୍ଜାମ"],
+ans:0
+},
+
+{
+q:"ପାରାଦୀପ ବନ୍ଦର କେଉଁ ଜିଲ୍ଲାରେ?",
+options:["ଜଗତସିଂହପୁର","ପୁରୀ","କେନ୍ଦ୍ରାପଡ଼ା","ଭଦ୍ରକ"],
+ans:0
+},
+
+{
+q:"ନୂଆଖାଇ ପର୍ବ କେଉଁ ଅଞ୍ଚଳରେ ପ୍ରସିଦ୍ଧ?",
+options:["ପଶ୍ଚିମ ଓଡ଼ିଶା","ଉପକୂଳ ଓଡ଼ିଶା","ଦକ୍ଷିଣ ଓଡ଼ିଶା","ଉତ୍ତର ଓଡ଼ିଶା"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ଗୀତ କେଉଁଟି?",
+options:["ବନ୍ଦେ ଉତ୍କଳ ଜନନୀ","ଜନ ଗଣ ମନ","ବନ୍ଦେ ମାତରମ୍","ସାରେ ଜହାଁ ସେ ଅଚ୍ଛା"],
+ans:0
+},
+
+{
+q:"ଧଉଳି କେଉଁ ନଦୀ କୂଳରେ?",
+options:["ଦୟା","ମହାନଦୀ","ବ୍ରାହ୍ମଣୀ","ବୈତରଣୀ"],
+ans:0
+},
+
+{
+q:"କଳିଙ୍ଗ ଯୁଦ୍ଧ କେଉଁଠାରେ ହୋଇଥିଲା?",
+options:["ଧଉଳି","କଟକ","ପୁରୀ","ବାରିପଦା"],
+ans:0
+},
+
+{
+q:"କଳିଙ୍ଗ ଯୁଦ୍ଧ ପରେ କିଏ ବୌଦ୍ଧ ଧର୍ମ ପ୍ରତି ଆକର୍ଷିତ ହୋଇଥିଲେ?",
+options:["ଅଶୋକ","ଚନ୍ଦ୍ରଗୁପ୍ତ","ସମୁଦ୍ରଗୁପ୍ତ","ହର୍ଷ"],
+ans:0
+},
+
+{
+q:"ଲିଙ୍ଗରାଜ ମନ୍ଦିର କେଉଁଠାରେ?",
+options:["ଭୁବନେଶ୍ୱର","ପୁରୀ","କଟକ","କୋଣାର୍କ"],
+ans:0
+},
+
+{
+q:"ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର କେଉଁଠାରେ?",
+options:["ଭୁବନେଶ୍ୱର","ପୁରୀ","କଟକ","ସମ୍ବଲପୁର"],
+ans:0
+},
+
+{
+q:"ଗୋପାଳପୁର ସମୁଦ୍ରତଟ କେଉଁ ଜିଲ୍ଲାରେ?",
+options:["ଗଞ୍ଜାମ","ପୁରୀ","ବାଲେଶ୍ୱର","କେନ୍ଦ୍ରାପଡ଼ା"],
+ans:0
+},
+
+{
+q:"ଚନ୍ଦ୍ରଭାଗା ସମୁଦ୍ରତଟ କେଉଁଠାରେ?",
+options:["କୋଣାର୍କ","ପୁରୀ","କଟକ","ବାଲେଶ୍ୱର"],
+ans:0
+},
+
+{
+q:"ଛେନାପୋଡ଼ ପାଇଁ କେଉଁ ଜିଲ୍ଲା ପ୍ରସିଦ୍ଧ?",
+options:["ନୟାଗଡ଼","ପୁରୀ","କଟକ","ବାଲେଶ୍ୱର"],
+ans:0
+},
+
+{
+q:"ଦହିବରା ଆଳୁଦମ ପାଇଁ କେଉଁ ସହର ପ୍ରସିଦ୍ଧ?",
+options:["କଟକ","ପୁରୀ","ଭୁବନେଶ୍ୱର","ବାଲେଶ୍ୱର"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ସମୁଦ୍ରତଟ କେଉଁ ଉପସାଗର ସହିତ ଜଡ଼ିତ?",
+options:["ବଙ୍ଗୋପସାଗର","ଆରବ ସାଗର","ପାର୍ସିକ ଉପସାଗର","ମାନ୍ନାର"],
+ans:0
+},
+
+{
+q:"ମୟୂରଭଞ୍ଜ କେଉଁ ନୃତ୍ୟ ପାଇଁ ପ୍ରସିଦ୍ଧ?",
+options:["ଛଉ","କଥକ","କୁଚିପୁଡ଼ି","ଗରବା"],
+ans:0
+},
+
+{
+q:"ବାରିପଦା କେଉଁ ଜିଲ୍ଲାର ମୁଖ୍ୟାଳୟ?",
+options:["ମୟୂରଭଞ୍ଜ","କେନ୍ଦୁଝର","ବାଲେଶ୍ୱର","ଭଦ୍ରକ"],
+ans:0
+},
+
+{
+q:"ରାଉରକେଲା କେଉଁ ଜିଲ୍ଲାରେ?",
+options:["ସୁନ୍ଦରଗଡ଼","ସମ୍ବଲପୁର","ଝାରସୁଗୁଡ଼ା","ଦେବଗଡ଼"],
+ans:0
+},
+
+{
+q:"ହୀରାକୁଦ ଡ୍ୟାମ୍ କେଉଁ ସହର ନିକଟରେ?",
+options:["ସମ୍ବଲପୁର","ପୁରୀ","କଟକ","ବ୍ରହ୍ମପୁର"],
+ans:0
+},
+
+{
+q:"ମହେନ୍ଦ୍ରଗିରି କେଉଁ ଜିଲ୍ଲାରେ?",
+options:["ଗଜପତି","ଖୋର୍ଦ୍ଧା","ଯାଜପୁର","ବୌଦ୍ଧ"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ପଶୁ କେଉଁଟି?",
+options:["ସମ୍ବର","ବାଘ","ହାତୀ","ଚିତା"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ପକ୍ଷୀ କେଉଁଟି?",
+options:["ଇଣ୍ଡିଆନ୍ ରୋଲର୍","ମୟୂର","କାଉ","ଟିଆ"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ଫୁଲ କେଉଁଟି?",
+options:["ଅଶୋକ","ପଦ୍ମ","ଗୋଲାପ","କେତକୀ"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ଗଛ କେଉଁଟି?",
+options:["ଅଶୋକ","ବରଗଛ","ପିପଳ","କଦମ୍ବ"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ପ୍ରମୁଖ ନଦୀ କେଉଁଟି?",
+options:["ମହାନଦୀ","ଗଙ୍ଗା","ଯମୁନା","ନର୍ମଦା"],
+ans:0
+},
+
+{
+q:"କଟକ କେଉଁ ନଦୀ ଦ୍ୱୟ ମଧ୍ୟରେ ଅଛି?",
+options:["ମହାନଦୀ-କାଠଯୋଡ଼ି","ଗଙ୍ଗା-ଯମୁନା","ବ୍ରାହ୍ମଣୀ-ବୈତରଣୀ","ରୁଷିକୁଲ୍ୟା-ବଂଶଧାରା"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ଶାସ୍ତ୍ରୀୟ ନୃତ୍ୟ କେଉଁଟି?",
+options:["ଓଡ଼ିଶୀ","କଥକ","ଭରତନାଟ୍ୟମ୍","କୁଚିପୁଡ଼ି"],
+ans:0
+},
+
+{
+q:"ପାରାଦୀପ କ'ଣ ପାଇଁ ପ୍ରସିଦ୍ଧ?",
+options:["ବନ୍ଦର","ପାହାଡ଼","ମନ୍ଦିର","ବିମାନବନ୍ଦର"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶା କେଉଁ ସମୁଦ୍ର କୂଳରେ ଅବସ୍ଥିତ?",
+options:["ବଙ୍ଗୋପସାଗର","ଆରବ ସାଗର","ଲାଲ ସାଗର","କଳା ସାଗର"],
+ans:0
+},
+
+{
+q:"ପୁରୀ ସହରର ପ୍ରମୁଖ ଧାର୍ମିକ ସ୍ଥାନ କେଉଁଟି?",
+options:["ଜଗନ୍ନାଥ ମନ୍ଦିର","ଲିଙ୍ଗରାଜ ମନ୍ଦିର","ସୂର୍ଯ୍ୟ ମନ୍ଦିର","ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ରୌପ୍ୟ କାରିଗରୀ କ'ଣ?",
+options:["ତାରକସି","ପଟ୍ଟଚିତ୍ର","ବାନ୍ଧ","କାଠ ଖୋଦେଇ"],
+ans:0
+},
+
+{
+q:"ରଘୁରାଜପୁର କେଉଁ କଳା ପାଇଁ ପ୍ରସିଦ୍ଧ?",
+options:["ପଟ୍ଟଚିତ୍ର","ତାରକସି","ସମ୍ବଲପୁରୀ","ଛଉ"],
+ans:0
+}
+
+];
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let quizQuestions = [];
+let currentQuestion = 0;
+let score = 0;
+let userName = "";
+let timer = null;
+let timeLeft = 30;
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const setupScreen =
+  document.getElementById("setup-screen");
+
+const quizScreen =
+  document.getElementById("quiz-screen");
+
+const resultScreen =
+  document.getElementById("result-screen");
+
+const nameInput =
+  document.getElementById("user-name");
+
+const startButton =
+  document.getElementById("start-button");
+
+const questionText =
+  document.getElementById("question-text");
+
+const questionNumber =
+  document.getElementById("question-number");
+
+const optionsContainer =
+  document.getElementById("options-container");
+
+const timerElement =
+  document.getElementById("timer");
+
+const progressBar =
+  document.getElementById("progress-bar");
+
+
+/* =========================
+   START
+========================= */
+
+startButton.addEventListener(
+  "click",
+  startQuiz
+);
+
+
+nameInput.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Enter"){
+      startQuiz();
+    }
+
+  }
+);
+
+
+function startQuiz(){
+
+  userName =
+    nameInput.value.trim();
+
+
+  if(userName === ""){
+
+    alert(
+      "ଦୟାକରି ଆପଣଙ୍କ ନାମ ଲେଖନ୍ତୁ!"
+    );
+
+    nameInput.focus();
+
+    return;
+  }
+
+
+  quizQuestions =
+    [...questions]
+    .sort(
+      () => Math.random() - 0.5
+    );
+
+
+  currentQuestion = 0;
+
+  score = 0;
+
+
+  setupScreen.classList.add(
+    "hidden"
+  );
+
+  resultScreen.classList.add(
+    "hidden"
+  );
+
+  quizScreen.classList.remove(
+    "hidden"
+  );
+
+
+  showQuestion();
+}
+
+
+/* =========================
+   SHOW QUESTION
+========================= */
+
+function showQuestion(){
+
+  clearInterval(timer);
+
+  timeLeft = 30;
+
+  updateTimer();
+
+
+  timer = setInterval(
+    function(){
+
+      timeLeft--;
+
+      updateTimer();
+
+
+      if(timeLeft <= 0){
+
+        clearInterval(timer);
+
+        answerQuestion(-1);
+
+      }
+
+    },
+    1000
+  );
+
+
+  const q =
+    quizQuestions[currentQuestion];
+
+
+  questionNumber.innerText =
+    "ପ୍ରଶ୍ନ "
+    + (currentQuestion + 1)
+    + " / "
+    + quizQuestions.length;
+
+
+  questionText.innerText =
+    q.q;
+
+
+  progressBar.style.width =
+    (
+      (currentQuestion /
+      quizQuestions.length)
+      * 100
+    ) + "%";
+
+
+  optionsContainer.innerHTML = "";
+
+
+  q.options.forEach(
+    function(option,index){
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+
+      button.type = "button";
+
+      button.className =
+        "option-btn";
+
+
+      button.innerText =
+        String.fromCharCode(
+          65 + index
+        )
+        + ". "
+        + option;
+
+
+      button.addEventListener(
+        "click",
+        function(){
+
+          answerQuestion(index);
+
+        }
+      );
+
+
+      optionsContainer.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+function updateTimer(){
+
+  timerElement.innerText =
+    "⏱️ ସମୟ: "
+    + timeLeft
+    + " ସେକେଣ୍ଡ";
+
+}
+
+
+/* =========================
+   ANSWER
+========================= */
+
+function answerQuestion(
+  selectedAnswer
+){
+
+  clearInterval(timer);
+
+
+  const correctAnswer =
+    quizQuestions[
+      currentQuestion
+    ].ans;
+
+
+  if(
+    selectedAnswer ===
+    correctAnswer
+  ){
+
+    score++;
+
+  }
+
+
+  currentQuestion++;
+
+
+  if(
+    currentQuestion <
+    quizQuestions.length
+  ){
+
+    showQuestion();
+
+  }else{
+
+    showResult();
+
+  }
+
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+function showResult(){
+
+  clearInterval(timer);
+
+
+  quizScreen.classList.add(
+    "hidden"
+  );
+
+  resultScreen.classList.remove(
+    "hidden"
+  );
+
+
+  document.getElementById(
+    "score-text"
+  ).innerText =
+    userName
+    + ", ଆପଣ "
+    + quizQuestions.length
+    + " ରୁ "
+    + score
+    + " ନମ୍ବର ପାଇଛନ୍ତି।";
+
+
+  document.getElementById(
+    "cert-student-name"
+  ).innerText =
+    userName;
+
+
+  const today =
+    new Date();
+
+
+  document.getElementById(
+    "cert-date"
+  ).innerText =
+    today.toLocaleDateString(
+      "en-IN",
+      {
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric"
+      }
+    );
+
+}
+
+
+/* =========================
+   DOWNLOAD PNG
+========================= */
+
+document
+.getElementById(
+  "download-button"
+)
+.addEventListener(
+  "click",
+  downloadCertificate
+);
+
+
+function downloadCertificate(){
+
+  const certificate =
+    document.getElementById(
+      "certificate"
+    );
+
+
+  if(
+    typeof html2canvas ===
+    "undefined"
+  ){
+
+    alert(
+      "Certificate download ପାଇଁ Internet ON କରି ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"
+    );
+
+    return;
+  }
+
+
+  html2canvas(
+    certificate,
+    {
+      backgroundColor:"#fffdf3",
+      scale:2,
+      useCORS:true
+    }
+  )
+  .then(
+    function(canvas){
+
+      const link =
+        document.createElement(
+          "a"
+        );
+
+
+      link.download =
+        userName.replace(
+          /\s+/g,
+          "_"
+        )
+        + "_Certificate.png";
+
+
+      link.href =
+        canvas.toDataURL(
+          "image/png"
+        );
+
+
+      document.body.appendChild(
+        link
+      );
+
+      link.click();
+
+      document.body.removeChild(
+        link
+      );
+
+    }
+  )
+  .catch(
+    function(){
+
+      alert(
+        "Certificate download ହୋଇପାରିଲା ନାହିଁ।"
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================
+   PRINT / PDF
+========================= */
+
+document
+.getElementById(
+  "print-button"
+)
+.addEventListener(
+  "click",
+  function(){
+
+    window.print();
+
+  }
+);
+
+
+/* =========================
+   RESTART
+========================= */
+
+document
+.getElementById(
+  "restart-button"
+)
+.addEventListener(
+  "click",
+  function(){
+
+    location.reload();
+
+  }
+);
+
+</script>
+
+</body>
+ </html> 
