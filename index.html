@@ -1,336 +1,314 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="or">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Odia GK Quiz</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<title>Odia GK Quiz | Smruti Ranjan Sahu</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,"Noto Sans Oriya",sans-serif;
-}
-
+*{box-sizing:border-box}
 body{
-  min-height:100vh;
-  background:linear-gradient(135deg,#061727,#123d5a,#07111c);
+  margin:0;
+  font-family:Arial,"Noto Sans Oriya",sans-serif;
+  background:linear-gradient(135deg,#061b2d,#07516b,#071a29);
   color:white;
-  padding:18px;
+  min-height:100vh;
+}
+.page{display:none}
+.page.active{display:block}
+.container{max-width:950px;margin:auto;padding:20px}
+
+.hero{
+  text-align:center;
+  padding:45px 20px 30px;
+  background:linear-gradient(135deg,#09263c,#0b5269);
+  border-radius:25px 25px 0 0;
+}
+.site-owner{
+  color:#ffd84d;
+  font-size:22px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+.presents{color:#c9dce5;margin:8px}
+.logo{font-size:65px}
+h1{
+  color:#ffd84d;
+  font-size:42px;
+  margin:8px 0;
+}
+.tagline{font-size:18px;color:#e3eef3}
+
+.home-card,.card{
+  background:#102c40;
+  border:1px solid #52798d;
+  border-radius:22px;
+  box-shadow:0 15px 45px #0008;
+}
+.home-card{overflow:hidden}
+
+.visuals{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  padding:22px;
+}
+.visual{
+  min-height:145px;
+  border:1px solid #53788b;
+  border-radius:17px;
+  background:linear-gradient(145deg,#173e54,#0b2638);
   display:flex;
+  flex-direction:column;
   justify-content:center;
   align-items:center;
+  text-align:center;
 }
+.visual span{font-size:48px}
+.visual b{margin-top:8px}
+.visual small{color:#bcd0d9;margin-top:5px}
 
-.card{
-  width:100%;
-  max-width:720px;
-  background:#10283a;
-  border:1px solid #49687d;
+.home-info{text-align:center;padding:10px 30px 35px}
+.home-info h2{color:#ffd84d}
+.features{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
+}
+.feature{
+  padding:10px 16px;
   border-radius:20px;
-  padding:28px;
-  box-shadow:0 12px 40px rgba(0,0,0,.55);
+  background:#173e54;
+  border:1px solid #52798d;
 }
-
-.hidden{
-  display:none!important;
-}
-
-.logo{
-  text-align:center;
-  font-size:55px;
-  margin-bottom:5px;
-}
-
-h1{
-  text-align:center;
-  color:#ffd84d;
-  margin-bottom:10px;
-}
-
-.subtitle{
-  text-align:center;
-  color:#cbdce8;
-  margin-bottom:25px;
-}
-
-input,
-select{
-  width:100%;
-  padding:14px;
-  margin-bottom:12px;
-  border-radius:9px;
-  border:1px solid #58778b;
-  background:#081723;
-  color:white;
-  font-size:16px;
-}
-
-button{
-  width:100%;
-  padding:14px;
-  margin-top:10px;
-  border:none;
-  border-radius:9px;
-  background:#1686c7;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-}
-
-button:hover{
-  opacity:.9;
-}
-
-.register-btn{
-  background:#16a05d;
-}
-
-.option-btn{
-  background:#203f56;
-  border:1px solid #5c7b8e;
-  text-align:left;
-}
-
-.option-btn:hover{
-  background:#2d5872;
-}
-
-#timer{
-  text-align:center;
-  color:#ffd84d;
-  font-size:20px;
+.instagram{
+  color:#ff7ab9;
   font-weight:bold;
+  font-size:17px;
+  margin:18px;
+}
+
+.card{padding:30px;margin-top:25px}
+.card h2{text-align:center;color:#ffd84d}
+.subtitle{text-align:center;color:#bdd0da;margin-bottom:25px}
+
+input,select{
+  width:100%;
+  padding:14px;
+  margin:7px 0;
+  border-radius:9px;
+  border:1px solid #5b7b8b;
+  background:#071a28;
+  color:white;
+  font-size:16px;
+}
+input::placeholder{color:#9db2bd}
+
+.consent{
+  display:flex;
+  gap:10px;
+  margin:15px 0;
+  color:#c6d7df;
+  font-size:13px;
+  line-height:1.5;
+}
+.consent input{width:auto;margin:3px 0}
+
+.btn{
+  width:100%;
+  border:0;
+  padding:15px;
+  border-radius:10px;
+  margin-top:12px;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  background:#168dcc;
+}
+.btn:hover{opacity:.9}
+.green{background:#12a663}
+.orange{background:#d96b19}
+.gray{background:#555}
+
+.success{text-align:center;padding:50px 20px}
+.success-icon{font-size:70px}
+.success h2{color:#3bea8d}
+
+.quiz-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   margin-bottom:15px;
 }
-
+.timer{
+  color:#ffd84d;
+  font-size:22px;
+  font-weight:bold;
+}
 .progress{
-  width:100%;
   height:8px;
-  background:#29485d;
+  background:#29495b;
   border-radius:20px;
   overflow:hidden;
-  margin-bottom:20px;
+  margin-bottom:25px;
 }
-
 .progress-bar{
   height:100%;
   width:0;
   background:#ffd84d;
-  transition:.2s;
 }
-
-#question-number{
-  color:#9fc8df;
-  margin-bottom:10px;
-}
-
-#question-text{
-  font-size:21px;
+.question{
+  font-size:22px;
   line-height:1.6;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
-
-.score{
-  color:#ffd84d;
-  text-align:center;
-  font-size:21px;
-  margin-bottom:15px;
+.option{
+  width:100%;
+  text-align:left;
+  padding:15px;
+  margin:6px 0;
+  background:#1b4057;
+  color:white;
+  border:1px solid #577a8d;
+  border-radius:9px;
+  cursor:pointer;
+  font-size:16px;
 }
+.option:hover{background:#2c607b}
 
-/* ================= CERTIFICATE ================= */
+.result{text-align:center}
+.result h2{color:#ffd84d}
+
+.certificate-area{overflow-x:auto}
 
 #certificate{
-  width:100%;
-  background:#fffdf4;
-  color:#222;
-  border:9px double #c99b25;
-  border-radius:8px;
-  padding:40px 28px 30px;
-  margin-top:20px;
+  width:1123px;
+  height:794px;
+  margin:25px auto;
   position:relative;
   overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 10%,#fff8d7 0,#fffdf3 28%,transparent 29%),
+    #fffdf3;
+  color:#333;
+  border:14px double #c79a25;
+  padding:55px;
   text-align:center;
 }
 
 #certificate:before{
   content:"";
   position:absolute;
-  inset:10px;
-  border:1px solid #d9bd65;
-  pointer-events:none;
+  inset:20px;
+  border:2px solid #d5b65c;
 }
-
-.cert-crown{
-  font-size:42px;
-  margin-bottom:5px;
+.cert-corner{
+  position:absolute;
+  color:#c79a25;
+  font-size:55px;
 }
+.c1{left:35px;top:30px}
+.c2{right:35px;top:30px}
+.c3{left:35px;bottom:30px}
+.c4{right:35px;bottom:30px}
 
-.cert-title{
-  font-family:Georgia,"Times New Roman",serif;
-  color:#735100;
-  font-size:34px;
-  font-weight:bold;
-  letter-spacing:4px;
-}
-
-.cert-subtitle{
-  font-family:Georgia,"Times New Roman",serif;
-  color:#a97800;
+.cert-top{
+  color:#98721b;
+  letter-spacing:5px;
   font-size:15px;
-  letter-spacing:3px;
-  margin-top:8px;
-  margin-bottom:28px;
+  margin-top:15px;
 }
-
+.cert-title{
+  font-family:Georgia,serif;
+  font-size:48px;
+  color:#705108;
+  letter-spacing:5px;
+  margin:12px;
+}
+.cert-achievement{
+  color:#a47613;
+  letter-spacing:4px;
+  font-size:18px;
+}
 .presented{
-  color:#666;
-  font-size:11px;
-  letter-spacing:2px;
-  margin-bottom:8px;
+  margin-top:45px;
+  color:#777;
+  font-size:12px;
+  letter-spacing:3px;
 }
-
 .cert-name{
   display:inline-block;
-  font-family:Georgia,"Times New Roman",serif;
-  color:#704d00;
-  font-size:31px;
+  font-family:Georgia,serif;
+  color:#654700;
+  font-size:40px;
   font-weight:bold;
-  border-bottom:2px solid #c99b25;
-  padding:5px 25px;
-  margin-bottom:22px;
+  border-bottom:2px solid #c79a25;
+  padding:8px 35px;
+  margin:10px;
 }
-
 .cert-text{
-  color:#444;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:13px;
-  line-height:1.8;
+  width:75%;
+  margin:10px auto;
+  color:#555;
+  font-family:Georgia,serif;
+  line-height:1.7;
+  font-size:16px;
 }
-
 .cert-bottom{
+  position:absolute;
+  left:70px;
+  right:70px;
+  bottom:55px;
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
-  align-items:end;
-  gap:15px;
-  margin-top:45px;
-  padding-top:15px;
-  border-top:1px solid #d4c48d;
+  border-top:1px solid #d1bd83;
+  padding-top:18px;
 }
-
-.bottom-box{
-  min-height:65px;
-}
-
-.bottom-title{
+.cert-box{min-height:60px}
+.cert-label{
   color:#777;
-  font-size:9px;
-  letter-spacing:1.5px;
+  font-size:10px;
+  letter-spacing:2px;
   margin-bottom:7px;
 }
-
-.date-value{
-  color:#222;
+.cert-date{font-weight:bold}
+.cert-instagram{
+  color:#bd347b;
+  font-weight:bold;
+}
+.signature{
   font-family:Georgia,serif;
-  font-size:13px;
   font-weight:bold;
+  color:#654700;
 }
-
-.instagram{
-  color:#c13584;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.signature-name{
-  color:#704d00;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:16px;
-  font-weight:bold;
-  margin-bottom:4px;
-}
-
 .signature-line{
-  width:100%;
-  border-top:1px solid #9e781d;
+  border-top:1px solid #98751f;
+  margin:5px 15px 0;
   padding-top:4px;
   color:#777;
   font-size:9px;
   letter-spacing:1px;
 }
 
-/* buttons */
-
-.download{
-  background:#d35400;
-}
-
-.print{
-  background:#555;
-}
-
-.restart{
-  background:#1979ba;
-}
-
-@media(max-width:600px){
-
-  .card{
-    padding:18px;
-  }
-
-  .cert-title{
-    font-size:25px;
-    letter-spacing:2px;
-  }
-
-  .cert-name{
-    font-size:23px;
-    padding:5px 12px;
-  }
-
-  .cert-bottom{
-    grid-template-columns:1fr 1fr 1fr;
-    gap:7px;
-  }
-
-  .instagram{
-    font-size:10px;
-  }
-
-  .signature-name{
-    font-size:12px;
-  }
-
+@media(max-width:700px){
+  .visuals{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:31px}
+  .site-owner{font-size:17px}
 }
 
 @media print{
-
-  body{
-    background:white;
-    padding:0;
-  }
-
-  #setup-screen,
-  #quiz-screen,
-  #score-text,
-  .actions{
-    display:none!important;
-  }
-
-  #result-screen{
-    display:block!important;
-    max-width:100%;
-    background:white;
-    box-shadow:none;
-    border:none;
-  }
-
+  body{background:white;padding:0}
+  .no-print{display:none!important}
   #certificate{
+    margin:0;
+    box-shadow:none;
+    page-break-after:always;
+  }
+  @page{
+    size:A4 landscape;
     margin:0;
   }
 }
@@ -339,235 +317,273 @@ button:hover{
 
 <body>
 
-<!-- ================= REGISTRATION ================= -->
+<div class="container">
 
-<div id="setup-screen" class="card">
+<!-- HOME -->
+<section id="home" class="page active">
+<div class="home-card">
 
+<div class="hero">
+  <div class="site-owner">SMRUTI RANJAN SAHU</div>
+  <div class="presents">PRESENTS</div>
   <div class="logo">🏆</div>
+  <h1>ODIA GK QUIZ</h1>
+  <div class="tagline">ଜ୍ଞାନ ପରୀକ୍ଷା କରନ୍ତୁ • ନୂଆ କିଛି ଶିଖନ୍ତୁ</div>
+</div>
 
-  <h1>Odia GK Quiz</h1>
+<div class="visuals">
 
-  <p class="subtitle">
-    ଜ୍ଞାନରୁ ସଫଳତା ଦିଗରେ
-  </p>
+<div class="visual">
+<span>🏛️</span>
+<b>ଓଡ଼ିଶା GK</b>
+<small>ଇତିହାସ • ସଂସ୍କୃତି</small>
+</div>
 
-  <input
-    type="text"
-    id="name"
-    placeholder="ଆପଣଙ୍କ ପୂରା ନାମ"
-  >
+<div class="visual">
+<span>🇮🇳</span>
+<b>ଭାରତ GK</b>
+<small>ଦେଶ • ଇତିହାସ</small>
+</div>
 
-  <input
-    type="tel"
-    id="mobile"
-    placeholder="ମୋବାଇଲ୍ ନମ୍ବର"
-    inputmode="numeric"
-  >
+<div class="visual">
+<span>🌍</span>
+<b>ସାଧାରଣ ଜ୍ଞାନ</b>
+<small>ବିଜ୍ଞାନ • ଭୂଗୋଳ</small>
+</div>
 
-  <input
-    type="email"
-    id="email"
-    placeholder="Email (ଇଚ୍ଛାକୃତ)"
-  >
-
-  <select id="district">
-    <option value="">ଜିଲ୍ଲା ବାଛନ୍ତୁ</option>
-    <option>Angul</option>
-    <option>Balangir</option>
-    <option>Balasore</option>
-    <option>Bargarh</option>
-    <option>Bhadrak</option>
-    <option>Boudh</option>
-    <option>Cuttack</option>
-    <option>Deogarh</option>
-    <option>Dhenkanal</option>
-    <option>Gajapati</option>
-    <option>Ganjam</option>
-    <option>Jagatsinghpur</option>
-    <option>Jajpur</option>
-    <option>Jharsuguda</option>
-    <option>Kalahandi</option>
-    <option>Kandhamal</option>
-    <option>Kendrapara</option>
-    <option>Kendujhar</option>
-    <option>Khordha</option>
-    <option>Koraput</option>
-    <option>Malkangiri</option>
-    <option>Mayurbhanj</option>
-    <option>Nabarangpur</option>
-    <option>Nayagarh</option>
-    <option>Nuapada</option>
-    <option>Puri</option>
-    <option>Rayagada</option>
-    <option>Sambalpur</option>
-    <option>Subarnapur</option>
-    <option>Sundargarh</option>
-  </select>
-
-  <button
-    class="register-btn"
-    id="registerBtn">
-    📝 Register & Start Quiz
-  </button>
+<div class="visual">
+<span>📚</span>
+<b>Quiz Challenge</b>
+<small>Test Your Knowledge</small>
+</div>
 
 </div>
 
+<div class="home-info">
+<h2>📚 Quiz ବିଷୟରେ</h2>
 
-<!-- ================= QUIZ ================= -->
+<p>
+ଓଡ଼ିଶା, ଭାରତ ଏବଂ ସାଧାରଣ ଜ୍ଞାନ
+ସମ୍ବନ୍ଧୀୟ ପ୍ରଶ୍ନ ମାଧ୍ୟମରେ ନିଜ ଜ୍ଞାନ
+ପରୀକ୍ଷା କରନ୍ତୁ।
+</p>
 
-<div id="quiz-screen" class="card hidden">
+<div class="features">
+<div class="feature">📝 50 Questions</div>
+<div class="feature">⏱️ 30 Seconds / Question</div>
+<div class="feature">🏆 Certificate</div>
+</div>
 
-  <div id="timer">
-    ⏱️ 30 seconds
-  </div>
+<div class="instagram">
+📸 Instagram: @mr_sahu_babu_00
+</div>
 
-  <div class="progress">
-    <div
-      id="progressBar"
-      class="progress-bar">
-    </div>
-  </div>
+<button class="btn green" onclick="show('register')">
+📝 REGISTER NOW
+</button>
+</div>
 
-  <p id="question-number"></p>
+</div>
+</section>
 
-  <h2 id="question-text"></h2>
 
-  <div id="options"></div>
+<!-- REGISTRATION -->
+<section id="register" class="page">
+<div class="card">
+
+<h2>📝 Registration</h2>
+<p class="subtitle">Quiz ଆରମ୍ଭ କରିବା ପାଇଁ ତଥ୍ୟ ଦିଅନ୍ତୁ</p>
+
+<input id="name" type="text" placeholder="ଆପଣଙ୍କ ପୂରା ନାମ">
+
+<input id="mobile" type="tel"
+placeholder="ମୋବାଇଲ୍ ନମ୍ବର"
+inputmode="numeric"
+maxlength="10">
+
+<input id="email" type="email"
+placeholder="Email (ଇଚ୍ଛାକୃତ)">
+
+<select id="district">
+<option value="">ଜିଲ୍ଲା ବାଛନ୍ତୁ</option>
+<option>Angul</option>
+<option>Balangir</option>
+<option>Balasore</option>
+<option>Bargarh</option>
+<option>Bhadrak</option>
+<option>Boudh</option>
+<option>Cuttack</option>
+<option>Deogarh</option>
+<option>Dhenkanal</option>
+<option>Gajapati</option>
+<option>Ganjam</option>
+<option>Jagatsinghpur</option>
+<option>Jajpur</option>
+<option>Jharsuguda</option>
+<option>Kalahandi</option>
+<option>Kandhamal</option>
+<option>Kendrapara</option>
+<option>Kendujhar</option>
+<option>Khordha</option>
+<option>Koraput</option>
+<option>Malkangiri</option>
+<option>Mayurbhanj</option>
+<option>Nabarangpur</option>
+<option>Nayagarh</option>
+<option>Nuapada</option>
+<option>Puri</option>
+<option>Rayagada</option>
+<option>Sambalpur</option>
+<option>Subarnapur</option>
+<option>Sundargarh</option>
+</select>
+
+<label class="consent">
+<input id="consent" type="checkbox">
+<span>
+ମୁଁ ବୁଝୁଛି ଯେ ମୋର ଦିଆଯାଇଥିବା
+ତଥ୍ୟ registration ଏବଂ quiz ସମ୍ବନ୍ଧୀୟ
+କାମ ପାଇଁ ବ୍ୟବହାର ହେବ।
+</span>
+</label>
+
+<button class="btn green" onclick="registerUser()">
+✅ REGISTER & CONTINUE
+</button>
+
+<button class="btn gray" onclick="show('home')">
+← BACK
+</button>
+
+</div>
+</section>
+
+
+<!-- SUCCESS -->
+<section id="success" class="page">
+<div class="card success">
+
+<div class="success-icon">✅</div>
+
+<h2>Registration Successful!</h2>
+
+<p>
+ଧନ୍ୟବାଦ <strong id="successName"></strong>।
+<br>
+ଆପଣଙ୍କ Registration ସଫଳ ହୋଇଛି।
+</p>
+
+<button class="btn green" onclick="startQuiz()">
+🚀 START QUIZ
+</button>
+
+</div>
+</section>
+
+
+<!-- QUIZ -->
+<section id="quiz" class="page">
+<div class="card">
+
+<div class="quiz-top">
+<div id="count">Question 1 / 50</div>
+<div id="timer" class="timer">⏱️ 30</div>
+</div>
+
+<div class="progress">
+<div id="bar" class="progress-bar"></div>
+</div>
+
+<div id="question" class="question"></div>
+<div id="options"></div>
+
+</div>
+</section>
+
+
+<!-- RESULT -->
+<section id="result" class="page">
+<div class="card result">
+
+<h2>🎉 Quiz Complete!</h2>
+
+<p id="resultText"></p>
+
+<div class="certificate-area">
+
+<div id="certificate">
+
+<div class="cert-corner c1">❖</div>
+<div class="cert-corner c2">❖</div>
+<div class="cert-corner c3">❖</div>
+<div class="cert-corner c4">❖</div>
+
+<div class="cert-top">ODIA GK QUIZ</div>
+
+<div class="cert-title">CERTIFICATE</div>
+
+<div class="cert-achievement">
+OF ACHIEVEMENT
+</div>
+
+<div class="presented">
+PROUDLY PRESENTED TO
+</div>
+
+<div id="certName" class="cert-name">
+STUDENT NAME
+</div>
+
+<div class="cert-text">
+This certificate is proudly presented in recognition
+of participation in the <b>Odia GK Quiz</b>.<br>
+ଏହି ପ୍ରମାଣପତ୍ର ଓଡ଼ିଆ ସାଧାରଣ ଜ୍ଞାନ
+କୁଇଜ୍‌ରେ ଅଂଶଗ୍ରହଣ ପାଇଁ ପ୍ରଦାନ କରାଯାଉଛି।
+</div>
+
+<div class="cert-bottom">
+
+<!-- DATE LEFT -->
+<div class="cert-box">
+<div class="cert-label">DATE</div>
+<div id="certDate" class="cert-date"></div>
+</div>
+
+<!-- INSTAGRAM CENTER -->
+<div class="cert-box">
+<div class="cert-label">INSTAGRAM</div>
+<div class="cert-instagram">@mr_sahu_babu_00</div>
+</div>
+
+<!-- SIGNATURE RIGHT -->
+<div class="cert-box">
+<div class="signature">
+Smruti Ranjan Sahu
+</div>
+<div class="signature-line">
+AUTHORIZED SIGNATURE
+</div>
+</div>
 
 </div>
 
+</div>
+</div>
 
-<!-- ================= RESULT ================= -->
+<div class="no-print">
 
-<div id="result-screen" class="card hidden">
+<button class="btn orange" onclick="window.print()">
+🖨️ PRINT / SAVE PDF
+</button>
 
-  <h2 style="text-align:center;">
-    🎉 Quiz ସମ୍ପୂର୍ଣ୍ଣ!
-  </h2>
+<button class="btn gray" onclick="show('home')">
+🏠 BACK TO HOME
+</button>
 
-  <p
-    id="score-text"
-    class="score">
-  </p>
+</div>
 
-
-  <!-- CERTIFICATE -->
-
-  <div id="certificate">
-
-    <div class="cert-crown">
-      🏆
-    </div>
-
-    <div class="cert-title">
-      CERTIFICATE
-    </div>
-
-    <div class="cert-subtitle">
-      OF ACHIEVEMENT
-    </div>
-
-    <div class="presented">
-      PROUDLY PRESENTED TO
-    </div>
-
-    <div
-      id="certName"
-      class="cert-name">
-      Student Name
-    </div>
-
-    <p class="cert-text">
-      This certificate is proudly presented for
-      outstanding participation and performance
-      in the <strong>ODIA GK QUIZ</strong>.
-    </p>
-
-    <p
-      class="cert-text"
-      style="margin-top:8px;">
-      ଏହି ପ୍ରମାଣପତ୍ର ଓଡ଼ିଆ ସାଧାରଣ ଜ୍ଞାନ
-      କୁଇଜ୍‌ରେ ଅଂଶଗ୍ରହଣ ପାଇଁ ପ୍ରଦାନ କରାଯାଉଛି।
-    </p>
-
-
-    <!-- BOTTOM -->
-
-    <div class="cert-bottom">
-
-      <!-- LEFT: DATE -->
-
-      <div class="bottom-box">
-
-        <div class="bottom-title">
-          DATE
-        </div>
-
-        <div
-          id="certDate"
-          class="date-value">
-        </div>
-
-      </div>
-
-
-      <!-- CENTER: INSTAGRAM -->
-
-      <div class="bottom-box">
-
-        <div class="bottom-title">
-          INSTAGRAM
-        </div>
-
-        <div class="instagram">
-          @mr_sahu_babu_00
-        </div>
-
-      </div>
-
-
-      <!-- RIGHT: SIGNATURE -->
-
-      <div class="bottom-box">
-
-        <div class="signature-name">
-          Smruti Ranjan Sahu
-        </div>
-
-        <div class="signature-line">
-          AUTHORIZED SIGNATURE
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- BUTTONS -->
-
-  <div class="actions">
-
-    <button
-      class="download"
-      id="downloadBtn">
-      🖼️ Certificate Download PNG
-    </button>
-
-    <button
-      class="print"
-      id="printBtn">
-      📄 Print / Save PDF
-    </button>
-
-    <button
-      class="restart"
-      id="restartBtn">
-      🔄 আবার Quiz করুন
-    </button>
-
-  </div>
+</div>
+</section>
 
 </div>
 
@@ -575,676 +591,307 @@ button:hover{
 <script>
 
 /* =========================
-   QUESTIONS
+   PAGE CONTROL
 ========================= */
 
-const questions = [
+function show(id){
+  document.querySelectorAll(".page").forEach(p=>{
+    p.classList.remove("active");
+  });
 
-{
-q:"ଓଡ଼ିଶାର ରାଜଧାନୀ କେଉଁଟି?",
-o:["କଟକ","ଭୁବନେଶ୍ୱର","ପୁରୀ","ସମ୍ବଲପୁର"],
-a:1
-},
-
-{
-q:"ଓଡ଼ିଶାର ରଥଯାତ୍ରା କେଉଁଠାରେ ହୁଏ?",
-o:["କଟକ","ପୁରୀ","ବାରିପଦା","ବ୍ରହ୍ମପୁର"],
-a:1
-},
-
-{
-q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ଭାଷା କେଉଁଟି?",
-o:["ହିନ୍ଦୀ","ଓଡ଼ିଆ","ବଙ୍ଗଳା","ତେଲୁଗୁ"],
-a:1
-},
-
-{
-q:"ଜଗନ୍ନାଥ ମନ୍ଦିର କେଉଁଠାରେ?",
-o:["ପୁରୀ","କଟକ","କୋଣାର୍କ","ଭୁବନେଶ୍ୱର"],
-a:0
-},
-
-{
-q:"କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର କାହାଙ୍କୁ ସମର୍ପିତ?",
-o:["ଶିବ","ସୂର୍ଯ୍ୟ","ବିଷ୍ଣୁ","ଗଣେଶ"],
-a:1
-},
-
-{
-q:"ଚିଲିକା ହ୍ରଦ କେଉଁ ପ୍ରକାରର?",
-o:["ଲବଣାକ୍ତ","ମିଠାପାଣି","କୃତ୍ରିମ","ହିମାଚ୍ଛାଦିତ"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ସର୍ବୋଚ୍ଚ ଶିଖର କେଉଁଟି?",
-o:["ଦେଓମାଳି","ମହେନ୍ଦ୍ରଗିରି","ମାଲ୍ୟଗିରି","ମେଘାସିନୀ"],
-a:0
-},
-
-{
-q:"ଦେଓମାଳି କେଉଁ ଜିଲ୍ଲାରେ?",
-o:["କୋରାପୁଟ","ପୁରୀ","କଟକ","ବଲାଙ୍ଗୀର"],
-a:0
-},
-
-{
-q:"ହୀରାକୁଦ ଡ୍ୟାମ୍ କେଉଁ ନଦୀ ଉପରେ?",
-o:["ମହାନଦୀ","ବ୍ରାହ୍ମଣୀ","ବୈତରଣୀ","ରୁଷିକୁଲ୍ୟା"],
-a:0
-},
-
-{
-q:"କଟକକୁ କେଉଁ ନାମରେ ଜଣାଯାଏ?",
-o:["ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ଇସ୍ପାତ ନଗରୀ","ସିଲ୍କ ସିଟି"],
-a:0
-},
-
-{
-q:"ଭୁବନେଶ୍ୱରକୁ କେଉଁ ନାମରେ ଜଣାଯାଏ?",
-o:["ମନ୍ଦିର ନଗରୀ","ରୌପ୍ୟ ନଗରୀ","ସିଲ୍କ ସିଟି","ଇସ୍ପାତ ନଗରୀ"],
-a:0
-},
-
-{
-q:"ରାଉରକେଲା କେଉଁ ନାମରେ ପରିଚିତ?",
-o:["ଇସ୍ପାତ ନଗରୀ","ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ସିଲ୍କ ସିଟି"],
-a:0
-},
-
-{
-q:"ବ୍ରହ୍ମପୁର କେଉଁ ନାମରେ ପରିଚିତ?",
-o:["ସିଲ୍କ ସିଟି","ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ଇସ୍ପାତ ନଗରୀ"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶୀ କେଉଁ ପ୍ରକାରର ନୃତ୍ୟ?",
-o:["ଶାସ୍ତ୍ରୀୟ","ଲୋକ","ଆଧୁନିକ","ଯୁଦ୍ଧ"],
-a:0
-},
-
-{
-q:"ପଟ୍ଟଚିତ୍ର ପାଇଁ କେଉଁ ସ୍ଥାନ ପ୍ରସିଦ୍ଧ?",
-o:["ରଘୁରାଜପୁର","ରାଉରକେଲା","ସମ୍ବଲପୁର","ବାରିପଦା"],
-a:0
-},
-
-{
-q:"ତାରକସି କାମ ପାଇଁ କେଉଁ ସହର ପ୍ରସିଦ୍ଧ?",
-o:["କଟକ","ପୁରୀ","କୋରାପୁଟ","ସମ୍ବଲପୁର"],
-a:0
-},
-
-{
-q:"ସମ୍ବଲପୁରୀ ଶାଢ଼ୀ କେଉଁ ଅଞ୍ଚଳର?",
-o:["ପଶ୍ଚିମ ଓଡ଼ିଶା","ଉପକୂଳ ଓଡ଼ିଶା","ଉତ୍ତର ଓଡ଼ିଶା","ଦକ୍ଷିଣ ଓଡ଼ିଶା"],
-a:0
-},
-
-{
-q:"ନନ୍ଦନକାନନ କେଉଁଠାରେ ଅଛି?",
-o:["ଭୁବନେଶ୍ୱର","କଟକ","ପୁରୀ","ବ୍ରହ୍ମପୁର"],
-a:0
-},
-
-{
-q:"ସିମିଳିପାଳ କେଉଁ ଜିଲ୍ଲାରେ?",
-o:["ମୟୂରଭଞ୍ଜ","କୋରାପୁଟ","ଗଜପତି","କଳାହାଣ୍ଡି"],
-a:0
-},
-
-{
-q:"ଭିତରକନିକା କେଉଁ ଜିଲ୍ଲାରେ?",
-o:["କେନ୍ଦ୍ରାପଡ଼ା","ପୁରୀ","କଟକ","ଗଞ୍ଜାମ"],
-a:0
-},
-
-{
-q:"ପାରାଦୀପ ବନ୍ଦର କେଉଁ ଜିଲ୍ଲାରେ?",
-o:["ଜଗତସିଂହପୁର","ପୁରୀ","କେନ୍ଦ୍ରାପଡ଼ା","ଭଦ୍ରକ"],
-a:0
-},
-
-{
-q:"ନୂଆଖାଇ ପର୍ବ କେଉଁ ଅଞ୍ଚଳରେ ପ୍ରସିଦ୍ଧ?",
-o:["ପଶ୍ଚିମ ଓଡ଼ିଶା","ଉପକୂଳ ଓଡ଼ିଶା","ଦକ୍ଷିଣ ଓଡ଼ିଶା","ଉତ୍ତର ଓଡ଼ିଶା"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ଗୀତ କେଉଁଟି?",
-o:["ବନ୍ଦେ ଉତ୍କଳ ଜନନୀ","ଜନ ଗଣ ମନ","ବନ୍ଦେ ମାତରମ୍","ସାରେ ଜହାଁ ସେ ଅଚ୍ଛା"],
-a:0
-},
-
-{
-q:"ଧଉଳି କେଉଁ ନଦୀ କୂଳରେ?",
-o:["ଦୟା","ମହାନଦୀ","ବ୍ରାହ୍ମଣୀ","ବୈତରଣୀ"],
-a:0
-},
-
-{
-q:"କଳିଙ୍ଗ ଯୁଦ୍ଧ କେଉଁଠାରେ ହୋଇଥିଲା?",
-o:["ଧଉଳି","କଟକ","ପୁରୀ","ବାରିପଦା"],
-a:0
-},
-
-{
-q:"କଳିଙ୍ଗ ଯୁଦ୍ଧ ପରେ କିଏ ବୌଦ୍ଧ ଧର୍ମ ପ୍ରତି ଆକର୍ଷିତ ହୋଇଥିଲେ?",
-o:["ଅଶୋକ","ଚନ୍ଦ୍ରଗୁପ୍ତ","ସମୁଦ୍ରଗୁପ୍ତ","ହର୍ଷ"],
-a:0
-},
-
-{
-q:"ଲିଙ୍ଗରାଜ ମନ୍ଦିର କେଉଁଠାରେ?",
-o:["ଭୁବନେଶ୍ୱର","ପୁରୀ","କଟକ","କୋଣାର୍କ"],
-a:0
-},
-
-{
-q:"ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର କେଉଁଠାରେ?",
-o:["ଭୁବନେଶ୍ୱର","ପୁରୀ","କଟକ","ସମ୍ବଲପୁର"],
-a:0
-},
-
-{
-q:"ଗୋପାଳପୁର ସମୁଦ୍ରତଟ କେଉଁ ଜିଲ୍ଲାରେ?",
-o:["ଗଞ୍ଜାମ","ପୁରୀ","ବାଲେଶ୍ୱର","କେନ୍ଦ୍ରାପଡ଼ା"],
-a:0
-},
-
-{
-q:"ଚନ୍ଦ୍ରଭାଗା ସମୁଦ୍ରତଟ କେଉଁଠାରେ?",
-o:["କୋଣାର୍କ","ପୁରୀ","କଟକ","ବାଲେଶ୍ୱର"],
-a:0
-},
-
-{
-q:"ଛେନାପୋଡ଼ ପାଇଁ କେଉଁ ଜିଲ୍ଲା ପ୍ରସିଦ୍ଧ?",
-o:["ନୟାଗଡ଼","ପୁରୀ","କଟକ","ବାଲେଶ୍ୱର"],
-a:0
-},
-
-{
-q:"ଦହିବରା ଆଳୁଦମ ପାଇଁ କେଉଁ ସହର ପ୍ରସିଦ୍ଧ?",
-o:["କଟକ","ପୁରୀ","ଭୁବନେଶ୍ୱର","ବାଲେଶ୍ୱର"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ସମୁଦ୍ରତଟ କେଉଁ ଉପସାଗର ସହିତ ଜଡ଼ିତ?",
-o:["ବଙ୍ଗୋପସାଗର","ଆରବ ସାଗର","ପାର୍ସିକ ଉପସାଗର","ମାନ୍ନାର"],
-a:0
-},
-
-{
-q:"ମୟୂରଭଞ୍ଜ କେଉଁ ନୃତ୍ୟ ପାଇଁ ପ୍ରସିଦ୍ଧ?",
-o:["ଛଉ","କଥକ","କୁଚିପୁଡ଼ି","ଗରବା"],
-a:0
-},
-
-{
-q:"ବାରିପଦା କେଉଁ ଜିଲ୍ଲାର ମୁଖ୍ୟାଳୟ?",
-o:["ମୟୂରଭଞ୍ଜ","କେନ୍ଦୁଝର","ବାଲେଶ୍ୱର","ଭଦ୍ରକ"],
-a:0
-},
-
-{
-q:"ରାଉରକେଲା କେଉଁ ଜିଲ୍ଲାରେ?",
-o:["ସୁନ୍ଦରଗଡ଼","ସମ୍ବଲପୁର","ଝାରସୁଗୁଡ଼ା","ଦେବଗଡ଼"],
-a:0
-},
-
-{
-q:"ହୀରାକୁଦ ଡ୍ୟାମ୍ କେଉଁ ସହର ନିକଟରେ?",
-o:["ସମ୍ବଲପୁର","ପୁରୀ","କଟକ","ବ୍ରହ୍ମପୁର"],
-a:0
-},
-
-{
-q:"ମହେନ୍ଦ୍ରଗିରି କେଉଁ ଜିଲ୍ଲାରେ?",
-o:["ଗଜପତି","ଖୋର୍ଦ୍ଧା","ଯାଜପୁର","ବୌଦ୍ଧ"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ପଶୁ କେଉଁଟି?",
-o:["ସମ୍ବର","ବାଘ","ହାତୀ","ଚିତା"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ପକ୍ଷୀ କେଉଁଟି?",
-o:["ଇଣ୍ଡିଆନ୍ ରୋଲର୍","ମୟୂର","କାଉ","ଟିଆ"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ଫୁଲ କେଉଁଟି?",
-o:["ଅଶୋକ","ପଦ୍ମ","ଗୋଲାପ","କେତକୀ"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ଗଛ କେଉଁଟି?",
-o:["ଅଶୋକ","ବରଗଛ","ପିପଳ","କଦମ୍ବ"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ପ୍ରମୁଖ ନଦୀ କେଉଁଟି?",
-o:["ମହାନଦୀ","ଗଙ୍ଗା","ଯମୁନା","ନର୍ମଦା"],
-a:0
-},
-
-{
-q:"କଟକ କେଉଁ ନଦୀ ଦ୍ୱୟ ମଧ୍ୟରେ ଅଛି?",
-o:["ମହାନଦୀ-କାଠଯୋଡ଼ି","ଗଙ୍ଗା-ଯମୁନା","ବ୍ରାହ୍ମଣୀ-ବୈତରଣୀ","ରୁଷିକୁଲ୍ୟା-ବଂଶଧାରା"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ଶାସ୍ତ୍ରୀୟ ନୃତ୍ୟ କେଉଁଟି?",
-o:["ଓଡ଼ିଶୀ","କଥକ","ଭରତନାଟ୍ୟମ୍","କୁଚିପୁଡ଼ି"],
-a:0
-},
-
-{
-q:"ପାରାଦୀପ କ'ଣ ପାଇଁ ପ୍ରସିଦ୍ଧ?",
-o:["ବନ୍ଦର","ପାହାଡ଼","ମନ୍ଦିର","ବିମାନବନ୍ଦର"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶା କେଉଁ ସମୁଦ୍ର କୂଳରେ ଅବସ୍ଥିତ?",
-o:["ବଙ୍ଗୋପସାଗର","ଆରବ ସାଗର","ଲାଲ ସାଗର","କଳା ସାଗର"],
-a:0
-},
-
-{
-q:"ପୁରୀର ପ୍ରମୁଖ ଧାର୍ମିକ ସ୍ଥାନ କେଉଁଟି?",
-o:["ଜଗନ୍ନାଥ ମନ୍ଦିର","ଲିଙ୍ଗରାଜ ମନ୍ଦିର","ସୂର୍ଯ୍ୟ ମନ୍ଦିର","ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର"],
-a:0
-},
-
-{
-q:"ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ରୌପ୍ୟ କାରିଗରୀ କ'ଣ?",
-o:["ତାରକସି","ପଟ୍ଟଚିତ୍ର","ବାନ୍ଧ","କାଠ ଖୋଦେଇ"],
-a:0
-},
-
-{
-q:"ରଘୁରାଜପୁର କେଉଁ କଳା ପାଇଁ ପ୍ରସିଦ୍ଧ?",
-o:["ପଟ୍ଟଚିତ୍ର","ତାରକସି","ସମ୍ବଲପୁରୀ","ଛଉ"],
-a:0
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
 }
+
+
+/* =========================
+   USER DATA
+========================= */
+
+let userName="";
+let current=0;
+let score=0;
+let time=30;
+let timer;
+
+
+/* =========================
+   50 QUESTIONS
+========================= */
+
+const questions=[
+
+["ଓଡ଼ିଶାର ରାଜଧାନୀ କେଉଁଟି?",["କଟକ","ଭୁବନେଶ୍ୱର","ପୁରୀ","ସମ୍ବଲପୁର"],1],
+
+["ଓଡ଼ିଶାର ରଥଯାତ୍ରା କେଉଁଠାରେ ହୁଏ?",["କଟକ","ପୁରୀ","ବାରିପଦା","ବ୍ରହ୍ମପୁର"],1],
+
+["ଓଡ଼ିଶାର ରାଜ୍ୟ ଭାଷା କେଉଁଟି?",["ହିନ୍ଦୀ","ଓଡ଼ିଆ","ବଙ୍ଗଳା","ତେଲୁଗୁ"],1],
+
+["ଜଗନ୍ନାଥ ମନ୍ଦିର କେଉଁଠାରେ ଅଛି?",["ପୁରୀ","କଟକ","କୋଣାର୍କ","ଭୁବନେଶ୍ୱର"],0],
+
+["କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର କାହାଙ୍କୁ ସମର୍ପିତ?",["ଶିବ","ସୂର୍ଯ୍ୟ","ବିଷ୍ଣୁ","ଗଣେଶ"],1],
+
+["ଚିଲିକା ହ୍ରଦ କେଉଁ ପ୍ରକାରର?",["ଲବଣାକ୍ତ","ମିଠାପାଣି","କୃତ୍ରିମ","ହିମାଚ୍ଛାଦିତ"],0],
+
+["ଓଡ଼ିଶାର ସର୍ବୋଚ୍ଚ ଶିଖର କେଉଁଟି?",["ଦେଓମାଳି","ମହେନ୍ଦ୍ରଗିରି","ମାଲ୍ୟଗିରି","ମେଘାସିନୀ"],0],
+
+["ଦେଓମାଳି କେଉଁ ଜିଲ୍ଲାରେ?",["କୋରାପୁଟ","ପୁରୀ","କଟକ","ବଲାଙ୍ଗୀର"],0],
+
+["ହୀରାକୁଦ ଡ୍ୟାମ୍ କେଉଁ ନଦୀ ଉପରେ?",["ମହାନଦୀ","ବ୍ରାହ୍ମଣୀ","ବୈତରଣୀ","ରୁଷିକୁଲ୍ୟା"],0],
+
+["କଟକକୁ କେଉଁ ନାମରେ ଜଣାଯାଏ?",["ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ଇସ୍ପାତ ନଗରୀ","ସିଲ୍କ ସିଟି"],0],
+
+["ଭୁବନେଶ୍ୱରକୁ କେଉଁ ନାମରେ ଜଣାଯାଏ?",["ମନ୍ଦିର ନଗରୀ","ରୌପ୍ୟ ନଗରୀ","ସିଲ୍କ ସିଟି","ଇସ୍ପାତ ନଗରୀ"],0],
+
+["ରାଉରକେଲା କେଉଁ ନାମରେ ପରିଚିତ?",["ଇସ୍ପାତ ନଗରୀ","ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ସିଲ୍କ ସିଟି"],0],
+
+["ବ୍ରହ୍ମପୁର କେଉଁ ନାମରେ ପରିଚିତ?",["ସିଲ୍କ ସିଟି","ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ଇସ୍ପାତ ନଗରୀ"],0],
+
+["ଓଡ଼ିଶୀ କେଉଁ ପ୍ରକାରର ନୃତ୍ୟ?",["ଶାସ୍ତ୍ରୀୟ","ଲୋକ","ଆଧୁନିକ","ଯୁଦ୍ଧ"],0],
+
+["ପଟ୍ଟଚିତ୍ର ପାଇଁ କେଉଁ ସ୍ଥାନ ପ୍ରସିଦ୍ଧ?",["ରଘୁରାଜପୁର","ରାଉରକେଲା","ସମ୍ବଲପୁର","ବାରିପଦା"],0],
+
+["ତାରକସି କାମ ପାଇଁ କେଉଁ ସହର ପ୍ରସିଦ୍ଧ?",["କଟକ","ପୁରୀ","କୋରାପୁଟ","ସମ୍ବଲପୁର"],0],
+
+["ସମ୍ବଲପୁରୀ ଶାଢ଼ୀ କେଉଁ ଅଞ୍ଚଳର?",["ପଶ୍ଚିମ ଓଡ଼ିଶା","ଉପକୂଳ ଓଡ଼ିଶା","ଉତ୍ତର ଓଡ଼ିଶା","ଦକ୍ଷିଣ ଓଡ଼ିଶା"],0],
+
+["ନନ୍ଦନକାନନ କେଉଁଠାରେ ଅଛି?",["ଭୁବନେଶ୍ୱର","କଟକ","ପୁରୀ","ବ୍ରହ୍ମପୁର"],0],
+
+["ସିମିଳିପାଳ କେଉଁ ଜିଲ୍ଲାରେ?",["ମୟୂରଭଞ୍ଜ","କୋରାପୁଟ","ଗଜପତି","କଳାହାଣ୍ଡି"],0],
+
+["ଭିତରକନିକା କେଉଁ ଜିଲ୍ଲାରେ?",["କେନ୍ଦ୍ରାପଡ଼ା","ପୁରୀ","କଟକ","ଗଞ୍ଜାମ"],0],
+
+["ପାରାଦୀପ ବନ୍ଦର କେଉଁ ଜିଲ୍ଲାରେ?",["ଜଗତସିଂହପୁର","ପୁରୀ","କେନ୍ଦ୍ରାପଡ଼ା","ଭଦ୍ରକ"],0],
+
+["ନୂଆଖାଇ ପର୍ବ କେଉଁ ଅଞ୍ଚଳରେ ପ୍ରସିଦ୍ଧ?",["ପଶ୍ଚିମ ଓଡ଼ିଶା","ଉପକୂଳ ଓଡ଼ିଶା","ଦକ୍ଷିଣ ଓଡ଼ିଶା","ଉତ୍ତର ଓଡ଼ିଶା"],0],
+
+["ଓଡ଼ିଶାର ରାଜ୍ୟ ଗୀତ କେଉଁଟି?",["ବନ୍ଦେ ଉତ୍କଳ ଜନନୀ","ଜନ ଗଣ ମନ","ବନ୍ଦେ ମାତରମ୍","ସାରେ ଜହାଁ ସେ ଅଚ୍ଛା"],0],
+
+["ଧଉଳି କେଉଁ ନଦୀ କୂଳରେ?",["ଦୟା","ମହାନଦୀ","ବ୍ରାହ୍ମଣୀ","ବୈତରଣୀ"],0],
+
+["କଳିଙ୍ଗ ଯୁଦ୍ଧ କେଉଁଠାରେ ହୋଇଥିଲା?",["ଧଉଳି","କଟକ","ପୁରୀ","ବାରିପଦା"],0],
+
+["କଳିଙ୍ଗ ଯୁଦ୍ଧ ପରେ କିଏ ବୌଦ୍ଧ ଧର୍ମ ପ୍ରତି ଆକର୍ଷିତ ହୋଇଥିଲେ?",["ଅଶୋକ","ଚନ୍ଦ୍ରଗୁପ୍ତ","ସମୁଦ୍ରଗୁପ୍ତ","ହର୍ଷ"],0],
+
+["ଲିଙ୍ଗରାଜ ମନ୍ଦିର କେଉଁଠାରେ?",["ଭୁବନେଶ୍ୱର","ପୁରୀ","କଟକ","କୋଣାର୍କ"],0],
+
+["ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର କେଉଁଠାରେ?",["ଭୁବନେଶ୍ୱର","ପୁରୀ","କଟକ","ସମ୍ବଲପୁର"],0],
+
+["ଗୋପାଳପୁର ସମୁଦ୍ରତଟ କେଉଁ ଜିଲ୍ଲାରେ?",["ଗଞ୍ଜାମ","ପୁରୀ","ବାଲେଶ୍ୱର","କେନ୍ଦ୍ରାପଡ଼ା"],0],
+
+["ଚନ୍ଦ୍ରଭାଗା ସମୁଦ୍ରତଟ କେଉଁଠାରେ?",["କୋଣାର୍କ","ପୁରୀ","କଟକ","ବାଲେଶ୍ୱର"],0],
+
+["ଛେନାପୋଡ଼ ପାଇଁ କେଉଁ ଜିଲ୍ଲା ପ୍ରସିଦ୍ଧ?",["ନୟାଗଡ଼","ପୁରୀ","କଟକ","ବାଲେଶ୍ୱର"],0],
+
+["ଦହିବରା ଆଳୁଦମ ପାଇଁ କେଉଁ ସହର ପ୍ରସିଦ୍ଧ?",["କଟକ","ପୁରୀ","ଭୁବନେଶ୍ୱର","ବାଲେଶ୍ୱର"],0],
+
+["ଓଡ଼ିଶାର ସମୁଦ୍ରତଟ କେଉଁ ଉପସାଗର ସହିତ ଜଡ଼ିତ?",["ବଙ୍ଗୋପସାଗର","ଆରବ ସାଗର","ପାର୍ସିକ ଉପସାଗର","ମାନ୍ନାର"],0],
+
+["ମୟୂରଭଞ୍ଜ କେଉଁ ନୃତ୍ୟ ପାଇଁ ପ୍ରସିଦ୍ଧ?",["ଛଉ","କଥକ","କୁଚିପୁଡ଼ି","ଗରବା"],0],
+
+["ବାରିପଦା କେଉଁ ଜିଲ୍ଲାର ମୁଖ୍ୟାଳୟ?",["ମୟୂରଭଞ୍ଜ","କେନ୍ଦୁଝର","ବାଲେଶ୍ୱର","ଭଦ୍ରକ"],0],
+
+["ରାଉରକେଲା କେଉଁ ଜିଲ୍ଲାରେ?",["ସୁନ୍ଦରଗଡ଼","ସମ୍ବଲପୁର","ଝାରସୁଗୁଡ଼ା","ଦେବଗଡ଼"],0],
+
+["ହୀରାକୁଦ ଡ୍ୟାମ୍ କେଉଁ ସହର ନିକଟରେ?",["ସମ୍ବଲପୁର","ପୁରୀ","କଟକ","ବ୍ରହ୍ମପୁର"],0],
+
+["ମହେନ୍ଦ୍ରଗିରି କେଉଁ ଜିଲ୍ଲାରେ?",["ଗଜପତି","ଖୋର୍ଦ୍ଧା","ଯାଜପୁର","ବୌଦ୍ଧ"],0],
+
+["ଓଡ଼ିଶାର ରାଜ୍ୟ ପଶୁ କେଉଁଟି?",["ସମ୍ବର","ବାଘ","ହାତୀ","ଚିତା"],0],
+
+["ଓଡ଼ିଶାର ରାଜ୍ୟ ପକ୍ଷୀ କେଉଁଟି?",["ଇଣ୍ଡିଆନ୍ ରୋଲର୍","ମୟୂର","କାଉ","ଟିଆ"],0],
+
+["ଓଡ଼ିଶାର ରାଜ୍ୟ ଫୁଲ କେଉଁଟି?",["ଅଶୋକ","ପଦ୍ମ","ଗୋଲାପ","କେତକୀ"],0],
+
+["ଓଡ଼ିଶାର ରାଜ୍ୟ ଗଛ କେଉଁଟି?",["ଅଶୋକ","ବରଗଛ","ପିପଳ","କଦମ୍ବ"],0],
+
+["ଓଡ଼ିଶାର ପ୍ରମୁଖ ନଦୀ କେଉଁଟି?",["ମହାନଦୀ","ଗଙ୍ଗା","ଯମୁନା","ନର୍ମଦା"],0],
+
+["କଟକ କେଉଁ ନଦୀ ଦ୍ୱୟ ମଧ୍ୟରେ ଅଛି?",["ମହାନଦୀ-କାଠଯୋଡ଼ି","ଗଙ୍ଗା-ଯମୁନା","ବ୍ରାହ୍ମଣୀ-ବୈତରଣୀ","ରୁଷିକୁଲ୍ୟା-ବଂଶଧାରା"],0],
+
+["ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ଶାସ୍ତ୍ରୀୟ ନୃତ୍ୟ କେଉଁଟି?",["ଓଡ଼ିଶୀ","କଥକ","ଭରତନାଟ୍ୟମ୍","କୁଚିପୁଡ଼ି"],0],
+
+["ପାରାଦୀପ କ'ଣ ପାଇଁ ପ୍ରସିଦ୍ଧ?",["ବନ୍ଦର","ପାହାଡ଼","ମନ୍ଦିର","ବିମାନବନ୍ଦର"],0],
+
+["ଓଡ଼ିଶା କେଉଁ ସମୁଦ୍ର କୂଳରେ ଅବସ୍ଥିତ?",["ବଙ୍ଗୋପସାଗର","ଆରବ ସାଗର","ଲାଲ ସାଗର","କଳା ସାଗର"],0],
+
+["ପୁରୀର ପ୍ରମୁଖ ଧାର୍ମିକ ସ୍ଥାନ କେଉଁଟି?",["ଜଗନ୍ନାଥ ମନ୍ଦିର","ଲିଙ୍ଗରାଜ ମନ୍ଦିର","ସୂର୍ଯ୍ୟ ମନ୍ଦିର","ମୁକ୍ତେଶ୍ୱର ମନ୍ଦିର"],0],
+
+["ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ରୌପ୍ୟ କାରିଗରୀ କ'ଣ?",["ତାରକସି","ପଟ୍ଟଚିତ୍ର","ବାନ୍ଧ","କାଠ ଖୋଦେଇ"],0],
+
+["ରଘୁରାଜପୁର କେଉଁ କଳା ପାଇଁ ପ୍ରସିଦ୍ଧ?",["ପଟ୍ଟଚିତ୍ର","ତାରକସି","ସମ୍ବଲପୁରୀ","ଛଉ"],0]
 
 ];
 
 
 /* =========================
-   VARIABLES
+   REGISTRATION
 ========================= */
 
-let current = 0;
-let score = 0;
-let timer;
-let time = 30;
-let userName = "";
+function registerUser(){
 
+  const name=document.getElementById("name").value.trim();
+  const mobile=document.getElementById("mobile").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const district=document.getElementById("district").value;
+  const consent=document.getElementById("consent").checked;
 
-/* =========================
-   ELEMENTS
-========================= */
-
-const setup =
-document.getElementById("setup-screen");
-
-const quiz =
-document.getElementById("quiz-screen");
-
-const result =
-document.getElementById("result-screen");
-
-const nameInput =
-document.getElementById("name");
-
-const registerBtn =
-document.getElementById("registerBtn");
-
-const questionNumber =
-document.getElementById("question-number");
-
-const questionText =
-document.getElementById("question-text");
-
-const options =
-document.getElementById("options");
-
-const timerText =
-document.getElementById("timer");
-
-const progress =
-document.getElementById("progressBar");
-
-
-/* =========================
-   START QUIZ
-========================= */
-
-registerBtn.onclick=function(){
-
-  userName =
-  nameInput.value.trim();
-
-  const mobile =
-  document.getElementById("mobile")
-  .value.trim();
-
-
-  if(userName===""){
-
-    alert(
-      "ଦୟାକରି ଆପଣଙ୍କ ନାମ ଦିଅନ୍ତୁ।"
-    );
-
+  if(!name){
+    alert("ଦୟାକରି ନାମ ଦିଅନ୍ତୁ।");
     return;
   }
 
-
-  if(mobile===""){
-
-    alert(
-      "ଦୟାକରି ମୋବାଇଲ୍ ନମ୍ବର ଦିଅନ୍ତୁ।"
-    );
-
+  if(!/^[0-9]{10}$/.test(mobile)){
+    alert("ଦୟାକରି 10 digit Mobile Number ଦିଅନ୍ତୁ।");
     return;
   }
 
+  if(!district){
+    alert("ଦୟାକରି ଜିଲ୍ଲା ବାଛନ୍ତୁ।");
+    return;
+  }
 
-  setup.classList.add("hidden");
+  if(!consent){
+    alert("ଦୟାକରି consent boxରେ tick କରନ୍ତୁ।");
+    return;
+  }
 
-  quiz.classList.remove("hidden");
+  userName=name;
 
+  localStorage.setItem("quizUser",JSON.stringify({
+    name:name,
+    mobile:mobile,
+    email:email,
+    district:district,
+    registeredAt:new Date().toISOString()
+  }));
+
+  document.getElementById("successName").textContent=name;
+
+  show("success");
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function startQuiz(){
 
   current=0;
   score=0;
+  show("quiz");
+  loadQuestion();
+}
 
-
-  showQuestion();
-
-};
-
-
-/* =========================
-   SHOW QUESTION
-========================= */
-
-function showQuestion(){
+function loadQuestion(){
 
   clearInterval(timer);
-
   time=30;
+
+  const q=questions[current];
+
+  document.getElementById("count").textContent=
+    "Question "+(current+1)+" / "+questions.length;
+
+  document.getElementById("question").textContent=q[0];
+
+  document.getElementById("bar").style.width=
+    ((current/questions.length)*100)+"%";
+
+  const options=document.getElementById("options");
+  options.innerHTML="";
+
+  q[1].forEach((text,index)=>{
+
+    const btn=document.createElement("button");
+    btn.className="option";
+    btn.textContent=
+      String.fromCharCode(65+index)+". "+text;
+
+    btn.onclick=()=>answer(index);
+
+    options.appendChild(btn);
+  });
 
   updateTimer();
 
+  timer=setInterval(()=>{
 
-  const q =
-  questions[current];
+    time--;
+    updateTimer();
 
-
-  questionNumber.innerText =
-  "ପ୍ରଶ୍ନ "
-  +(current+1)
-  +" / "
-  +questions.length;
-
-
-  questionText.innerText =
-  q.q;
-
-
-  progress.style.width =
-  ((current/questions.length)*100)
-  +"%";
-
-
-  options.innerHTML="";
-
-
-  q.o.forEach(
-    function(option,index){
-
-      const btn =
-      document.createElement("button");
-
-
-      btn.className="option-btn";
-
-      btn.innerText =
-      String.fromCharCode(65+index)
-      +". "
-      +option;
-
-
-      btn.onclick=function(){
-
-        checkAnswer(index);
-
-      };
-
-
-      options.appendChild(btn);
-
+    if(time<=0){
+      clearInterval(timer);
+      answer(-1);
     }
-  );
 
-
-  timer=setInterval(
-    function(){
-
-      time--;
-
-      updateTimer();
-
-
-      if(time<=0){
-
-        clearInterval(timer);
-
-        checkAnswer(-1);
-
-      }
-
-    },
-    1000
-  );
-
+  },1000);
 }
-
-
-/* =========================
-   TIMER
-========================= */
 
 function updateTimer(){
-
-  timerText.innerText =
-  "⏱️ ସମୟ: "
-  +time
-  +" ସେକେଣ୍ଡ";
-
+  document.getElementById("timer").textContent="⏱️ "+time;
 }
 
-
-/* =========================
-   CHECK
-========================= */
-
-function checkAnswer(answer){
+function answer(index){
 
   clearInterval(timer);
 
-
-  if(answer===questions[current].a){
-
+  if(index===questions[current][2]){
     score++;
-
   }
-
 
   current++;
 
-
   if(current<questions.length){
-
-    showQuestion();
-
+    loadQuestion();
   }else{
-
-    showResult();
-
+    finishQuiz();
   }
-
 }
 
 
 /* =========================
-   RESULT
+   FINISH
 ========================= */
 
-function showResult(){
+function finishQuiz(){
 
-  quiz.classList.add("hidden");
+  clearInterval(timer);
 
-  result.classList.remove("hidden");
+  show("result");
 
+  document.getElementById("resultText").textContent=
+    userName+
+    ", ଆପଣ Quiz ସମ୍ପୂର୍ଣ୍ଣ କରିଛନ୍ତି। "+
+    "ଆପଣଙ୍କ Certificate ତଳେ ରହିଛି।";
 
-  document.getElementById(
-    "score-text"
-  ).innerText =
-  userName
-  +" — "
-  +questions.length
-  +" ରୁ "
-  +score
-  +" ନମ୍ବର।";
+  document.getElementById("certName").textContent=userName;
 
+  const d=new Date();
 
-  document.getElementById(
-    "certName"
-  ).innerText =
-  userName;
-
-
-  const date =
-  new Date();
-
-
-  document.getElementById(
-    "certDate"
-  ).innerText =
-  date.toLocaleDateString(
-    "en-IN",
-    {
+  document.getElementById("certDate").textContent=
+    d.toLocaleDateString("en-IN",{
       day:"2-digit",
       month:"2-digit",
       year:"numeric"
-    }
-  );
-
+    });
 }
 
 
 /* =========================
-   DOWNLOAD
+   START
 ========================= */
 
-document.getElementById(
-  "downloadBtn"
-).onclick=function(){
+document.addEventListener("DOMContentLoaded",()=>{
 
-  const certificate =
-  document.getElementById(
-    "certificate"
-  );
-
-
-  if(typeof html2canvas==="undefined"){
-
-    alert(
-      "PNG download ପାଇଁ Internet ON କରନ୍ତୁ।"
-    );
-
-    return;
-
+  if(questions.length!==50){
+    console.warn("Question count:",questions.length);
   }
 
-
-  html2canvas(
-    certificate,
-    {
-      scale:2,
-      backgroundColor:"#fffdf4",
-      useCORS:true
-    }
-  )
-  .then(
-    function(canvas){
-
-      const link =
-      document.createElement("a");
-
-
-      link.download =
-      userName.replace(
-        /\s+/g,
-        "_"
-      )
-      +"_Certificate.png";
-
-
-      link.href =
-      canvas.toDataURL(
-        "image/png"
-      );
-
-
-      link.click();
-
-    }
-  );
-
-};
-
-
-/* =========================
-   PRINT
-========================= */
-
-document.getElementById(
-  "printBtn"
-).onclick=function(){
-
-  window.print();
-
-};
-
-
-/* =========================
-   RESTART
-========================= */
-
-document.getElementById(
-  "restartBtn"
-).onclick=function(){
-
-  location.reload();
-
-};
+});
 
 </script>
 
 </body>
-  </html>
+</html>
