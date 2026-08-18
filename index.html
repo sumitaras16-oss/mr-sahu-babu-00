@@ -1,324 +1,674 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="or">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Odia GK Quiz</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<title>Odia GK Quiz</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    body {
-      background: #121212;
-      color: white;
-      min-height: 100vh;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<style>
 
-    .card {
-      width: 100%;
-      max-width: 650px;
-      background: #1e1e1e;
-      border: 1px solid #333;
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 5px 25px rgba(0,0,0,.5);
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
 
-    h1 {
-      color: #d4af37;
-      margin-bottom: 10px;
-    }
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#071a2b,#123b59,#06111d);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:15px;
+}
 
-    h2 {
-      margin-bottom: 20px;
-    }
+.card{
+  width:100%;
+  max-width:720px;
+  background:#14283a;
+  border:1px solid #45657d;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 10px 35px rgba(0,0,0,.5);
+  text-align:center;
+}
 
-    p {
-      color: #ccc;
-      margin-bottom: 18px;
-    }
+.hidden{
+  display:none;
+}
 
-    input {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #555;
-      background: #292929;
-      color: white;
-      font-size: 16px;
-    }
+h1{
+  color:#ffd84d;
+  margin-bottom:10px;
+}
 
-    button {
-      width: 100%;
-      padding: 13px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 8px;
-      background: #27ae60;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
+p{
+  color:#d9e3eb;
+  line-height:1.6;
+  margin-bottom:18px;
+}
 
-    button:hover {
-      opacity: .9;
-    }
+input{
+  width:100%;
+  padding:14px;
+  border-radius:9px;
+  border:1px solid #607d92;
+  background:#081723;
+  color:white;
+  font-size:17px;
+  margin-bottom:12px;
+}
 
-    .category-btn {
-      background: #2980b9;
-    }
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:9px;
+  color:white;
+  background:#1680c4;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:10px;
+}
 
-    .option-btn {
-      background: #292929;
-      border: 1px solid #555;
-      text-align: left;
-    }
+button:hover{
+  opacity:.9;
+}
 
-    .btn-png {
-      background: #d35400;
-    }
+.option-btn{
+  background:#203d54;
+  border:1px solid #58758a;
+  text-align:left;
+}
 
-    .hidden {
-      display: none;
-    }
+#timer{
+  color:#ffd84d;
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
 
-    #certificate {
-      background: #1e1e1e;
-      color: white;
-      border: 5px solid #d4af37;
-      border-radius: 12px;
-      padding: 30px 20px;
-      margin-top: 20px;
-      text-align: center;
-      font-family: Georgia, serif;
-    }
+.progress{
+  width:100%;
+  height:8px;
+  background:#29465a;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
 
-    .cert-badge {
-      display: inline-flex;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #d4af37;
-      color: #1e1e1e;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 11px;
-      margin-bottom: 15px;
-    }
+.progress-bar{
+  width:0%;
+  height:100%;
+  background:#ffd84d;
+}
 
-    .cert-header {
-      font-size: 28px;
-      letter-spacing: 3px;
-    }
+.result-score{
+  color:#ffd84d;
+  font-size:21px;
+  font-weight:bold;
+}
 
-    .cert-sub {
-      color: #d4af37;
-      letter-spacing: 2px;
-      margin: 8px 0 25px;
-    }
 
-    .cert-name {
-      color: #f39c12;
-      font-size: 30px;
-      margin: 12px 0;
-      border-bottom: 1px solid #d4af37;
-      display: inline-block;
-      padding: 5px 15px;
-    }
+/* ======================
+   CERTIFICATE
+====================== */
 
-    .cert-footer {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-      padding-top: 15px;
-      border-top: 1px solid #444;
-      font-size: 12px;
-    }
+#certificate{
 
-    .signature {
-      text-align: right;
-    }
+  background:#fffdf3;
 
-    @media(max-width:500px) {
-      .card {
-        padding: 18px;
-      }
+  color:#222;
 
-      .cert-header {
-        font-size: 22px;
-      }
+  border:8px double #c79b20;
 
-      .cert-name {
-        font-size: 25px;
-      }
-    }
-  </style>
+  border-radius:8px;
+
+  padding:35px 25px;
+
+  margin-top:20px;
+
+  position:relative;
+
+  text-align:center;
+
+  overflow:hidden;
+}
+
+#certificate:before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:10px;
+
+  border:1px solid #d6b64d;
+
+  pointer-events:none;
+}
+
+.certificate-icon{
+  font-size:42px;
+  margin-bottom:8px;
+}
+
+.cert-title{
+
+  color:#735300;
+
+  font-family:Georgia,"Times New Roman",serif;
+
+  font-size:34px;
+
+  font-weight:bold;
+
+  letter-spacing:4px;
+
+}
+
+.cert-subtitle{
+
+  color:#b07b00;
+
+  font-family:Georgia,"Times New Roman",serif;
+
+  font-size:15px;
+
+  letter-spacing:3px;
+
+  margin-top:8px;
+
+  margin-bottom:25px;
+
+}
+
+.presented{
+
+  color:#666;
+
+  font-size:11px;
+
+  letter-spacing:2px;
+
+  margin-bottom:5px;
+
+}
+
+
+/* NAME — ସିଧା ଲାଇନ୍ */
+
+.cert-name{
+
+  display:inline-block;
+
+  color:#704d00;
+
+  font-family:Georgia,"Times New Roman",serif;
+
+  font-size:32px;
+
+  font-weight:bold;
+
+  letter-spacing:1px;
+
+  border-bottom:2px solid #c79b20;
+
+  padding:6px 25px;
+
+  margin:5px 0 20px;
+
+}
+
+
+/* DESCRIPTION */
+
+.cert-description{
+
+  color:#444;
+
+  font-family:Georgia,"Times New Roman",serif;
+
+  font-size:13px;
+
+  line-height:1.7;
+
+  margin-bottom:10px;
+
+}
+
+
+/* DATE + SIGNATURE */
+
+.cert-footer{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-end;
+
+  margin-top:35px;
+
+  padding-top:15px;
+
+  border-top:1px solid #cdbb80;
+
+}
+
+.cert-footer-box{
+
+  width:45%;
+
+}
+
+.cert-date{
+
+  color:#222;
+
+  font-family:Georgia,"Times New Roman",serif;
+
+  font-size:14px;
+
+  font-weight:bold;
+
+}
+
+
+/* SIGNATURE ମଧ୍ୟ ସିଧା */
+
+.signature{
+
+  color:#704d00;
+
+  font-family:Georgia,"Times New Roman",serif;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+}
+
+.small-label{
+
+  color:#777;
+
+  font-size:9px;
+
+  letter-spacing:1px;
+
+  margin-top:4px;
+
+}
+
+.download-btn{
+  background:#d35400;
+}
+
+.print-btn{
+  background:#555;
+}
+
+.restart-btn{
+  background:#1878bd;
+}
+
+@media(max-width:520px){
+
+  .card{
+    padding:18px;
+  }
+
+  .cert-title{
+    font-size:25px;
+  }
+
+  .cert-name{
+    font-size:24px;
+    padding:5px 15px;
+  }
+
+  .cert-footer{
+    margin-top:25px;
+  }
+
+}
+
+
+/* PRINT */
+
+@media print{
+
+  body{
+    background:white;
+    padding:0;
+  }
+
+  #setup-screen,
+  #quiz-screen,
+  #score-text,
+  .download-area{
+    display:none!important;
+  }
+
+  #result-screen{
+    display:block!important;
+    width:100%;
+    max-width:100%;
+    background:white;
+    box-shadow:none;
+    border:none;
+  }
+
+  #certificate{
+    margin:0;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- Registration -->
-  <div id="setup-screen" class="card">
-    <h1>🇮🇳 Odia GK Quiz</h1>
 
-    <p>ନିଜର ନାମ ଦେଇ କୁଇଜ୍ ଆରମ୍ଭ କରନ୍ତୁ</p>
+<!-- ======================
+     START PAGE
+====================== -->
 
-    <input
-      type="text"
-      id="user-name"
-      placeholder="ଆପଣଙ୍କ ପୂରା ନାମ ଲେଖନ୍ତୁ"
-    >
+<div id="setup-screen" class="card">
 
-    <p><strong>Category ବାଛନ୍ତୁ</strong></p>
+  <div style="font-size:50px;">🏆</div>
 
-    <button class="category-btn" onclick="startQuiz('india')">
-      🇮🇳 ଭାରତ GK
-    </button>
+  <h1>ଓଡ଼ିଶା GK QUIZ</h1>
 
-    <button class="category-btn" onclick="startQuiz('odisha')">
-      🏛️ ଓଡ଼ିଶା GK
-    </button>
+  <p>
+    50ଟି ସାଧାରଣ ଜ୍ଞାନ ପ୍ରଶ୍ନ
+  </p>
 
-    <button class="category-btn" onclick="startQuiz('general')">
-      📝 ସାଧାରଣ GK
-    </button>
+  <input
+    type="text"
+    id="user-name"
+    placeholder="ଆପଣଙ୍କ ପୂରା ନାମ ଲେଖନ୍ତୁ"
+  >
+
+  <button onclick="startQuiz()">
+    🚀 Quiz ଆରମ୍ଭ କରନ୍ତୁ
+  </button>
+
+</div>
+
+
+<!-- ======================
+     QUIZ PAGE
+====================== -->
+
+<div id="quiz-screen" class="card hidden">
+
+  <div id="timer">
+    ⏱️ ସମୟ: 30 ସେକେଣ୍ଡ
   </div>
 
-
-  <!-- Quiz -->
-  <div id="quiz-screen" class="card hidden">
-
-    <h2 id="question-text"></h2>
-
-    <div id="options-container"></div>
-
+  <div class="progress">
+    <div
+      id="progress-bar"
+      class="progress-bar">
+    </div>
   </div>
 
+  <p id="question-number">
+    ପ୍ରଶ୍ନ 1 / 50
+  </p>
 
-  <!-- Result -->
-  <div id="result-screen" class="card hidden">
+  <h2 id="question-text"></h2>
 
-    <h2>🎉 Quiz ସମ୍ପୂର୍ଣ୍ଣ ହେଲା!</h2>
+  <div id="options-container"></div>
 
-    <p id="score-text"></p>
+</div>
 
-    <!-- Certificate -->
-    <div id="certificate">
 
-      <div class="cert-badge">
-        AWARD<br>2026
-      </div>
+<!-- ======================
+     RESULT PAGE
+====================== -->
 
-      <div class="cert-header">
-        CERTIFICATE
-      </div>
+<div id="result-screen" class="card hidden">
 
-      <div class="cert-sub">
-        OF ACHIEVEMENT
-      </div>
+  <h2>🎉 Quiz ସମ୍ପୂର୍ଣ୍ଣ ହେଲା!</h2>
 
-      <p style="font-size:12px;">
-        PROUDLY PRESENTED TO
-      </p>
+  <p id="score-text" class="result-score"></p>
 
-      <div class="cert-name" id="cert-student-name">
-        Student Name
-      </div>
 
-      <p style="font-size:13px;">
-        FOR EXCELLENT PERFORMANCE IN
-        <strong id="cert-category" style="color:#d4af37;">
-          ODIA GK QUIZ
-        </strong>
-      </p>
+  <!-- ======================
+       CERTIFICATE
+  ====================== -->
 
-      <p style="font-size:12px; line-height:1.6;">
-        ଏହି ପ୍ରମାଣପତ୍ର ଅନଲାଇନ୍ GK Quiz ରେ
-        ଉତ୍କୃଷ୍ଟ ପ୍ରଦର୍ଶନ ପାଇଁ ପ୍ରଦାନ କରାଯାଉଛି।
-      </p>
+  <div id="certificate">
 
-      <div class="cert-footer">
+    <div class="certificate-icon">
+      🏆
+    </div>
 
-        <div>
-          <p style="font-size:10px;">DATE</p>
-          <strong id="cert-date"></strong>
-        </div>
+    <div class="cert-title">
+      CERTIFICATE
+    </div>
 
-        <div class="signature">
-          <p style="color:#d4af37; margin:0;">
-            Odia GK Quiz
-          </p>
+    <div class="cert-subtitle">
+      OF ACHIEVEMENT
+    </div>
 
-          <p style="font-size:10px; margin:3px 0 0;">
-            AUTHORIZED SIGNATURE
-          </p>
-        </div>
+    <p class="presented">
+      PROUDLY PRESENTED TO
+    </p>
 
-      </div>
 
+    <!-- ଏଠାରେ ଛାତ୍ରଙ୍କ ନାମ ଆସିବ -->
+
+    <div
+      id="cert-student-name"
+      class="cert-name">
+      Student Name
     </div>
 
 
-    <button
-      onclick="downloadPNG()"
-      class="btn-png">
-      🖼️ Certificate Download PNG
-    </button>
+    <p class="cert-description">
 
-    <button onclick="window.print()">
-      📄 Print / Save PDF
-    </button>
+      ଓଡ଼ିଶା GK Quiz ରେ ଅଂଶଗ୍ରହଣ କରି
+      ଉତ୍କୃଷ୍ଟ ପ୍ରଦର୍ଶନ ପାଇଁ
+      ଏହି ପ୍ରମାଣପତ୍ର ପ୍ରଦାନ କରାଯାଉଛି।
 
-    <button
-      onclick="location.reload()"
-      class="category-btn">
-      🔄 ପୁଣି ଥରେ ଖେଳନ୍ତୁ
-    </button>
+    </p>
+
+
+    <p class="cert-description">
+
+      <strong>ODISHA GENERAL KNOWLEDGE QUIZ</strong>
+
+    </p>
+
+
+    <!-- DATE AND SIGNATURE -->
+
+    <div class="cert-footer">
+
+
+      <div class="cert-footer-box">
+
+        <div class="small-label">
+          DATE
+        </div>
+
+        <!-- Quiz ଦେଇଥିବା ଦିନର Date -->
+
+        <div
+          id="cert-date"
+          class="cert-date">
+        </div>
+
+      </div>
+
+
+      <div class="cert-footer-box">
+
+        <div class="signature">
+          Odia GK Quiz
+        </div>
+
+        <div class="small-label">
+          AUTHORIZED SIGNATURE
+        </div>
+
+      </div>
+
+
+    </div>
 
   </div>
 
 
-  <script>
+  <!-- BUTTONS -->
 
-    const questions = {
+  <div class="download-area">
 
-      odisha: [
+    <button
+      class="download-btn"
+      onclick="downloadCertificate()">
 
-        {
-          q: "ଓଡ଼ିଶାର ରାଜଧାନୀ କେଉଁଟି?",
-          options: [
-            "କଟକ",
-            "ଭୁବନେଶ୍ୱର",
-            "ପୁରୀ",
-            "ସମ୍ବଲପୁର"
-          ],
-          ans: 1
-        },
+      🖼️ Certificate Download PNG
 
-        {
-          q: "ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ରଥଯାତ୍ରା କେଉଁ ସହରରେ ହୁଏ?",
-          options: [
-            "କଟକ",
-            "ପୁରୀ",
-            "ବାଲେଶ୍ୱର",
-            "ବ୍ରହ୍ମପୁର"
-          ],
-          ans: 1
-        },
+    </button>
 
-        {
-          q: "ଓଡ଼ିଶାର ରାଜ
+
+    <button
+      class="print-btn"
+      onclick="window.print()">
+
+      📄 Print / Save PDF
+
+    </button>
+
+
+    <button
+      class="restart-btn"
+      onclick="location.reload()">
+
+      🔄 ପୁଣି ଥରେ Quiz କରନ୍ତୁ
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+
+/* ======================
+   QUESTIONS
+====================== */
+
+const questions = [
+
+{
+q:"ଓଡ଼ିଶାର ରାଜଧାନୀ କେଉଁଟି?",
+options:["କଟକ","ଭୁବନେଶ୍ୱର","ପୁରୀ","ସମ୍ବଲପୁର"],
+ans:1
+},
+
+{
+q:"ଓଡ଼ିଶାର ରଥଯାତ୍ରା କେଉଁଠାରେ ହୁଏ?",
+options:["କଟକ","ପୁରୀ","ବ୍ରହ୍ମପୁର","ବାରିପଦା"],
+ans:1
+},
+
+{
+q:"ଓଡ଼ିଶାର ରାଜ୍ୟ ଭାଷା କେଉଁଟି?",
+options:["ହିନ୍ଦୀ","ଓଡ଼ିଆ","ବଙ୍ଗଳା","ତେଲୁଗୁ"],
+ans:1
+},
+
+{
+q:"ଶ୍ରୀଜଗନ୍ନାଥ ମନ୍ଦିର କେଉଁଠାରେ ଅଛି?",
+options:["କଟକ","ପୁରୀ","କୋଣାର୍କ","ଭୁବନେଶ୍ୱର"],
+ans:1
+},
+
+{
+q:"କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର କାହାଙ୍କୁ ସମର୍ପିତ?",
+options:["ଶିବ","ବିଷ୍ଣୁ","ସୂର୍ଯ୍ୟ","ଗଣେଶ"],
+ans:2
+},
+
+{
+q:"ଚିଲିକା ହ୍ରଦ କେଉଁ ପ୍ରକାରର?",
+options:["ମିଠାପାଣି","ଲବଣାକ୍ତ","କୃତ୍ରିମ","ହିମାଚ୍ଛାଦିତ"],
+ans:1
+},
+
+{
+q:"ଓଡ଼ିଶାର ସର୍ବୋଚ୍ଚ ଶିଖର କେଉଁଟି?",
+options:["ଦେଓମାଳି","ମହେନ୍ଦ୍ରଗିରି","ମାଲ୍ୟଗିରି","ମେଘାସିନୀ"],
+ans:0
+},
+
+{
+q:"ଦେଓମାଳି କେଉଁ ଜିଲ୍ଲାରେ?",
+options:["କୋରାପୁଟ","ପୁରୀ","କଟକ","ବଲାଙ୍ଗୀର"],
+ans:0
+},
+
+{
+q:"ହୀରାକୁଦ ଡ୍ୟାମ୍ କେଉଁ ନଦୀ ଉପରେ?",
+options:["ମହାନଦୀ","ବ୍ରାହ୍ମଣୀ","ବୈତରଣୀ","ରୁଷିକୁଲ୍ୟା"],
+ans:0
+},
+
+{
+q:"କଟକକୁ କେଉଁ ନାମରେ ଜଣାଯାଏ?",
+options:["ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ଇସ୍ପାତ ନଗରୀ","ସିଲ୍କ ସିଟି"],
+ans:0
+},
+
+{
+q:"ଭୁବନେଶ୍ୱରକୁ କେଉଁ ନାମରେ ଜଣାଯାଏ?",
+options:["ମନ୍ଦିର ନଗରୀ","ରୌପ୍ୟ ନଗରୀ","ସିଲ୍କ ସିଟି","ଇସ୍ପାତ ନଗରୀ"],
+ans:0
+},
+
+{
+q:"ରାଉରକେଲା କେଉଁ ନାମରେ ପରିଚିତ?",
+options:["ଇସ୍ପାତ ନଗରୀ","ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ସିଲ୍କ ସିଟି"],
+ans:0
+},
+
+{
+q:"ବ୍ରହ୍ମପୁର କେଉଁ ନାମରେ ପରିଚିତ?",
+options:["ସିଲ୍କ ସିଟି","ରୌପ୍ୟ ନଗରୀ","ମନ୍ଦିର ନଗରୀ","ଇସ୍ପାତ ନଗରୀ"],
+ans:0
+},
+
+{
+q:"ଓଡ଼ିଶୀ କେଉଁ ପ୍ରକାରର ନୃତ୍ୟ?",
+options:["ଶାସ୍ତ୍ରୀୟ","ଲୋକ","ଆଧୁନିକ","ଯୁଦ୍ଧ"],
+ans:0
+},
+
+{
+q:"ପଟ୍ଟଚିତ୍ର ପାଇଁ କେଉଁ ସ୍ଥାନ ପ୍ରସିଦ୍ଧ?",
+options:["ରଘୁରାଜପୁର","ରାଉରକେଲା","ସମ୍ବଲପୁର","ବାରିପଦା"],
+ans:0
+},
+
+{
+q:"ତାରକସି କାମ ପାଇଁ କେଉଁ ସହର ପ୍ରସିଦ୍ଧ?",
+options:["କଟକ","ପୁରୀ","କୋରାପୁଟ","ସମ୍ବଲପୁର"],
+ans:0
+},
+
+{
